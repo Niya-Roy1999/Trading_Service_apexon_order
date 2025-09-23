@@ -20,7 +20,6 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Slf4j
@@ -69,7 +68,7 @@ public class OrdersController {
                 saved.getType().name(),
                 saved.getTotalQuantity(),
                 saved.getNotionalValue().toPlainString(),
-                saved.getAdvancedFeatures() != null ? saved.getAdvancedFeatures().name() : ""
+                saved.getTimeInForce() == null ? TimeInForce.IMMEDIATE_OR_CANCEL.name() : saved.getTimeInForce().name()
         );
 
         var envelope =  new EventEnvelope<>(

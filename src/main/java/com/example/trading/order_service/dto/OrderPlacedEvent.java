@@ -10,5 +10,5 @@ public record OrderPlacedEvent(
         String type,
         BigDecimal quantity,
         String price,
-        String advancedFeatures
+        String timeInForce
 ) { }

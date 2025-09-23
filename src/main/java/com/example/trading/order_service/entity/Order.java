@@ -81,10 +81,6 @@ public class Order {
     @Column(name = "executed_at")
     private OffsetDateTime executedAt;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "advanced_features", length = 18)
-    private AdvancedFeatures advancedFeatures = AdvancedFeatures.NULL;
-
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Executions> items = new ArrayList<>();
 
