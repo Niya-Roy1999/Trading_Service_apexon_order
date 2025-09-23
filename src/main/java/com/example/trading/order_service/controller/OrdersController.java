@@ -68,7 +68,8 @@ public class OrdersController {
                 saved.getOrderSide().name(),
                 saved.getType().name(),
                 saved.getTotalQuantity(),
-                saved.getNotionalValue().toPlainString()
+                saved.getNotionalValue().toPlainString(),
+                saved.getAdvancedFeatures() != null ? saved.getAdvancedFeatures().name() : ""
         );
 
         var envelope =  new EventEnvelope<>(

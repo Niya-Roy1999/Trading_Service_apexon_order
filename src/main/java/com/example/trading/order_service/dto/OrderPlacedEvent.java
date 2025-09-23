@@ -9,5 +9,6 @@ public record OrderPlacedEvent(
         String slide,
         String type,
         BigDecimal quantity,
-        String price
+        String price,
+        String advancedFeatures
 ) { }
