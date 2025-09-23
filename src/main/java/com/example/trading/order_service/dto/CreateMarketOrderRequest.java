@@ -27,9 +27,6 @@ public class CreateMarketOrderRequest {
     @NonNull
     OrderType orderType;
 
-    @PositiveOrZero
-    BigDecimal price;
-
     @NotNull
     @DecimalMin(value = "0.00000001")
     private BigDecimal quantity;
@@ -38,4 +35,12 @@ public class CreateMarketOrderRequest {
 
     @Size(max = 64)
     private String clientOrderId; // idempotency
+
+    @PositiveOrZero
+    BigDecimal price;
+
+    private BigDecimal stopPrice;
+    private BigDecimal trailingOffset;
+    private String trailingType;
+    private Integer displayQuantity;
 }

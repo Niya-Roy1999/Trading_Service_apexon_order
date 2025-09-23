@@ -46,7 +46,7 @@ public class OrdersController {
                 .instrumentId(req.getInstrumentId())
                 .instrumentSymbol(req.getInstrumentSymbol())
                 .orderSide(req.getOrderSide())
-                .type(OrderType.MARKET)
+                .type(req.getOrderType())
                 .status(OrderStatus.PENDING)
                 .totalQuantity(req.getQuantity())
                 .filledQuantity(BigDecimal.ZERO)
@@ -54,38 +54,57 @@ public class OrdersController {
                 .clientOrderId(req.getClientOrderId())
                 .placedAt(OffsetDateTime.now())
                 .updatedAt(OffsetDateTime.now())
-                .notionalValue(req.getPrice().multiply(req.getQuantity()))
+                .notionalValue(req.getPrice() != null ? req.getPrice().multiply(req.getQuantity()) : BigDecimal.ZERO)
                 .build();
 
         // 3. Save the order to the database (ID will be generated here)
         Order saved = orderRepo.save(order);
 
-        var payload = new OrderPlacedEvent(
-                saved.getId().toString(),
-                saved.getUserId().toString(),
-                saved.getInstrumentSymbol(),
-                saved.getOrderSide().name(),
-                saved.getType().name(),
-                saved.getTotalQuantity(),
-                saved.getNotionalValue().toPlainString(),
-                saved.getTimeInForce() == null ? TimeInForce.IMMEDIATE_OR_CANCEL.name() : saved.getTimeInForce().name()
-        );
+        OrderPlacedEvent payload = new OrderPlacedEvent();
+        payload.setOrderId(saved.getId().toString());
+        payload.setUserId(req.getUserId().toString());
+        payload.setSymbol(req.getInstrumentSymbol());
+        payload.setSide(req.getOrderSide().name());
+        payload.setType(req.getOrderType().name());
+        payload.setQuantity(req.getQuantity());
+        payload.setTimeInForce(req.getTimeInForce().name());
 
-        var envelope =  new EventEnvelope<>(
-                "OrderPlaced",
-                "v1",
-                UUID.randomUUID().toString(),
-                "order-service",
-                Instant.now().toString(),
-                payload
-        );
+        switch (req.getOrderType()) {
+            case LIMIT:
+                payload.setPrice(req.getPrice());
+                break;
+            case STOP_MARKET:
+                payload.setStopPrice(req.getStopPrice());
+                break;
+            case STOP_LIMIT:
+                payload.setStopPrice(req.getStopPrice());
+                payload.setPrice(req.getPrice());
+                break;
+            case TRAILING_STOP:
+                payload.setTrailingOffset(req.getTrailingOffset());
+                payload.setTrailingType(req.getTrailingType());
+                break;
+            case ICEBERG:
+                payload.setPrice(req.getPrice());
+                payload.setDisplayQuantity(req.getDisplayQuantity());
+                break;
+            default:
+                break;
+        }
 
-        // 5. Publish the event to Kafka
-        producer.publish("orders.v1", saved.getId().toString(), envelope);
-        // 6. Return the saved order as response
-        return ResponseEntity.ok(saved);
-    }
-
+            EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
+                    "OrderPlaced",
+                    "v1",
+                    UUID.randomUUID().toString(),
+                    "order-service",
+                    Instant.now().toString(),
+                    payload
+            );
+            // 5. Publish the event to Kafka
+            producer.publish("orders.v1", saved.getId().toString(), envelope);
+            // 6. Return the saved order as response
+            return ResponseEntity.ok(saved);
+        }
 
     @GetMapping("/orders/{orderId}")
     public ResponseEntity<Order> getOrder(@PathVariable Long orderId) {

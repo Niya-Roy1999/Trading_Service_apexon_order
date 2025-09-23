@@ -65,6 +65,18 @@ public class Order {
     @Column(name = "notional_value", precision = 20, scale = 8)
     private BigDecimal notionalValue; // Sum of fill qty*price
 
+    @Column(name = "stop_price", precision = 18, scale = 8)
+    private BigDecimal stopPrice;
+
+    @Column(name = "trailing_offset", precision = 18, scale = 8)
+    private BigDecimal trailingOffset;
+
+    @Column(name = "trailing_type", length = 16)
+    private String trailingType;
+
+    @Column(name = "display_quantity")
+    private Integer displayQuantity;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "time_in_force", nullable = false, length = 8)
     private TimeInForce timeInForce = TimeInForce.IMMEDIATE_OR_CANCEL;

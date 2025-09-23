@@ -1,10 +1,16 @@
 package com.example.trading.order_service.dto;
 
-public record EventEnvelope<T>(
-        String eventType,
-        String schemaVersion,
-        String correlationId,
-        String producer,
-        String timeStamp,
-        T payload
-) { }
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class EventEnvelope<T> {
+    private String eventType;
+    private String schemaVersion;
+    private String correlationId;
+    private String producer;
+    private String timeStamp;
+    private T payload;
+}
+
