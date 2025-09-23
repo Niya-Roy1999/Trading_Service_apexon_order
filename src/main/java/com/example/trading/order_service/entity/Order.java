@@ -39,9 +39,12 @@ public class Order {
     @Column(name = "instrument_id", nullable = false, length = 64)
     private String instrumentId;
 
+    @Column(name = "instrument_symbol", length = 32)
+    private String instrumentSymbol;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "side", nullable = false, length = 8)
-    private Side side;
+    private OrderSide orderSide;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false, length = 16)

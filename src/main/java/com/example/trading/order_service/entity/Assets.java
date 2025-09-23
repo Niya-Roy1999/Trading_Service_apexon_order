@@ -1,7 +1,11 @@
 package com.example.trading.order_service.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
@@ -11,7 +15,7 @@ import java.time.OffsetDateTime;
 @Builder
 @Entity
 @Table(name = "assets",
-        uniqueConstraints = @UniqueConstraint(name = "uq_assets_user_instr", columnNames = {"user_id","instrument_id"}),
+        uniqueConstraints = @UniqueConstraint(name = "uq_assets_user_instr", columnNames = {"user_id", "instrument_id"}),
         indexes = {
                 @Index(name = "ix_assets_user", columnList = "user_id"),
                 @Index(name = "ix_assets_instr", columnList = "instrument_id")

@@ -1,7 +1,5 @@
 package com.example.trading.order_service.dto;
 
-import org.springframework.kafka.annotation.KafkaListener;
-
 import java.math.BigDecimal;
 
 public record OrderExecutedEvent (
