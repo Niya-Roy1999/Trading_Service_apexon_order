@@ -4,12 +4,15 @@ import com.example.trading.order_service.Enums.OrderStatus;
 import com.example.trading.order_service.Enums.OrderType;
 import com.example.trading.order_service.Enums.TimeInForce;
 import com.example.trading.order_service.dto.CreateMarketOrderRequest;
+import com.example.trading.order_service.dto.EventEnvelope;
+import com.example.trading.order_service.dto.OrderPlacedEvent;
 import com.example.trading.order_service.entity.Order;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -51,34 +55,34 @@ public class OrdersController {
                 .clientOrderId(req.getClientOrderId())
                 .placedAt(OffsetDateTime.now())
                 .updatedAt(OffsetDateTime.now())
+                .notionalValue(req.getPrice().multiply(req.getQuantity()))
                 .build();
 
         // 3. Save the order to the database (ID will be generated here)
         Order saved = orderRepo.save(order);
 
-        // 4. Prepare the Kafka event using the saved order
-        /*
-        var evt = Map.of(
-                "eventType", "OrderPlaced",
-                "orderId", saved.getId().toString(),
-                "clientId", "T-123",
-                "symbol", saved.getInstrumentSymbol(),
-                "side", saved.getOrderSide().name(),
-                "type", saved.getType().name(),
-                "quantity", saved.getTotalQuantity(),
-                "price", saved.getNotionalValue(),
-                "timestamp", Instant.now().toString()
+        var payload = new OrderPlacedEvent(
+                saved.getId().toString(),
+                saved.getUserId().toString(),
+                saved.getInstrumentSymbol(),
+                saved.getOrderSide().name(),
+                saved.getType().name(),
+                saved.getTotalQuantity(),
+                saved.getNotionalValue().toPlainString()
+        );
+
+        var envelope =  new EventEnvelope<>(
+                "OrderPlaced",
+                "v1",
+                UUID.randomUUID().toString(),
+                "order-service",
+                Instant.now().toString(),
+                payload
         );
 
         // 5. Publish the event to Kafka
-        producer.publish("orders.v1", saved.getId().toString(), evt,
-                Map.of(
-                        "correlationId", UUID.randomUUID().toString(),
-                        "schemaVersion", "v1",
-                        "producer", "order-service"
-                ));
-
-        // 6. Return the saved order as response */
+        producer.publish("orders.v1", saved.getId().toString(), envelope);
+        // 6. Return the saved order as response
         return ResponseEntity.ok(saved);
     }
 
