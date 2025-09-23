@@ -9,6 +9,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 import java.time.Instant;
 import java.util.UUID;
+ /*
 @Component
 @RequiredArgsConstructor
 public class ExecutionEventsConsumer {
@@ -22,3 +23,4 @@ public class ExecutionEventsConsumer {
         });
     }
 }
+  */
