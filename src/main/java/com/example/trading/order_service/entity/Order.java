@@ -93,6 +93,9 @@ public class Order {
     @Column(name = "executed_at")
     private OffsetDateTime executedAt;
 
+    @Column(name = "isConfirmed")
+    private boolean isConfirmed;
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Executions> items = new ArrayList<>();
 

@@ -43,5 +43,4 @@ public class CreateMarketOrderRequest {
     private BigDecimal trailingOffset;
     private String trailingType;
     private Integer displayQuantity;
-    private Boolean confirm = false;
 }

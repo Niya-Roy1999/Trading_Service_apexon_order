@@ -1,35 +1,92 @@
 package com.example.trading.order_service.service;
 
 import com.example.trading.order_service.Enums.OrderStatus;
+import com.example.trading.order_service.Enums.TimeInForce;
+import com.example.trading.order_service.dto.CreateMarketOrderRequest;
+import com.example.trading.order_service.dto.CreateMarketOrderResponse;
 import com.example.trading.order_service.dto.EventEnvelope;
 import com.example.trading.order_service.dto.OrderPlacedEvent;
 import com.example.trading.order_service.entity.Order;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.OffsetDateTime;
+import java.util.Collections;
 import java.util.Optional;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class OrderService {
     private final OrderRepository orderRepo;
     private final OrderEventsProducer producer;
 
-    public Optional<Order> reviewAndConfirmOrder(Long id) {
-        return orderRepo.findById(id).map(order -> {
+    @Transactional
+    public CreateMarketOrderResponse createMarketOrder(CreateMarketOrderRequest req) {
+        // 1. Idempotency check: reject duplicate client_order_id for the same user
+        if (req.getClientOrderId() != null &&
+                orderRepo.findByUserIdAndClientOrderId(req.getUserId(), req.getClientOrderId()).isPresent()) {
+            log.info("There is a conflict and this cant be done");
+            return null;
+        }
+        // 2. Build the Order entity
+        Order order = Order.builder()
+                .userId(req.getUserId())
+                .instrumentId(req.getInstrumentId())
+                .instrumentSymbol(req.getInstrumentSymbol())
+                .orderSide(req.getOrderSide())
+                .type(req.getOrderType())
+                .status(OrderStatus.NEW)
+                .totalQuantity(req.getQuantity())
+                .filledQuantity(BigDecimal.ZERO)
+                .timeInForce(req.getTimeInForce() == null ? TimeInForce.IMMEDIATE_OR_CANCEL : req.getTimeInForce())
+                .clientOrderId(req.getClientOrderId())
+                .placedAt(OffsetDateTime.now())
+                .updatedAt(OffsetDateTime.now())
+                .notionalValue(req.getPrice() != null ? req.getPrice().multiply(req.getQuantity()) : BigDecimal.ZERO)
+                .build();
 
+        // 3. Save the order to the database (ID will be generated here)
+        Order saved = orderRepo.save(order);
+
+        // 4. Map entity -> DTO
+        return  CreateMarketOrderResponse.builder()
+                .orderId(saved.getId().toString())
+                .userId(saved.getUserId())
+                .instrumentId(saved.getInstrumentId())
+                .instrumentSymbol(saved.getInstrumentSymbol())
+                .orderSide(saved.getOrderSide())
+                .orderType(saved.getType())
+                .orderStatus(saved.getStatus())
+                .totalQuantity(saved.getTotalQuantity())
+                .filledQuantity(saved.getFilledQuantity())
+                .averageFillPrice(saved.getAvgFillPrice()) // assuming entity has it
+                .notionalValue(saved.getNotionalValue())
+                .timeInForce(saved.getTimeInForce())
+                .clientOrderId(saved.getClientOrderId())
+                .placedAt(saved.getPlacedAt())
+                .updatedAt(saved.getUpdatedAt())
+                .executedAt(saved.getExecutedAt()) // null initially
+                .items(Collections.emptyList())    // empty list until executions happen
+                .build();
+    }
+
+    @Transactional
+    public Optional<CreateMarketOrderResponse> reviewAndConfirmOrder(Long id) {
+        return orderRepo.findById(id).map(order -> {
             // Update status if order is NEW
             if (order.getStatus() == OrderStatus.NEW) {
                 order.setStatus(OrderStatus.PENDING);
                 order.setUpdatedAt(OffsetDateTime.now());
-                order = orderRepo.save(order);
+                order.setConfirmed(true);
             }
-
             // Publish single Kafka event
             OrderPlacedEvent payload = buildEventPayload(order);
             EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
@@ -41,8 +98,27 @@ public class OrderService {
                     payload
             );
             producer.publish("orders.v1", order.getId().toString(), envelope);
-
-            return order;
+            // 3. Map entity -> DTO
+            return CreateMarketOrderResponse.builder()
+                    .orderId(order.getId().toString())
+                    .userId(order.getUserId())
+                    .instrumentId(order.getInstrumentId())
+                    .instrumentSymbol(order.getInstrumentSymbol())
+                    .orderSide(order.getOrderSide())
+                    .orderType(order.getType())
+                    .orderStatus(order.getStatus())
+                    .totalQuantity(order.getTotalQuantity())
+                    .filledQuantity(order.getFilledQuantity())
+                    .averageFillPrice(order.getAvgFillPrice())
+                    .notionalValue(order.getNotionalValue())
+                    .timeInForce(order.getTimeInForce())
+                    .clientOrderId(order.getClientOrderId())
+                    .placedAt(order.getPlacedAt())
+                    .updatedAt(order.getUpdatedAt())
+                    .executedAt(order.getExecutedAt())
+                    .items(Collections.emptyList()) // until executions happen
+                    .isConfirmed(order.isConfirmed())
+                    .build();
         });
     }
 

@@ -1,15 +1,6 @@
 package com.example.trading.order_service.kafka;
 
-import com.example.trading.order_service.dto.OrderExecutedEvent;
-import com.example.trading.order_service.entity.Order;
-import com.example.trading.order_service.Enums.OrderStatus;
-import com.example.trading.order_service.repository.OrderRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Component;
-import java.time.Instant;
-import java.util.UUID;
- /*
+/*
 @Component
 @RequiredArgsConstructor
 public class ExecutionEventsConsumer {
