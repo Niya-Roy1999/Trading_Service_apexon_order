@@ -17,4 +17,5 @@ public class OrderPlacedEvent{
     private String trailingType;
     private Integer displayQuantity;
     private String timeInForce;
+    private String status;
 }

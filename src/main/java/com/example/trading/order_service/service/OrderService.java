@@ -2,7 +2,7 @@ package com.example.trading.order_service.service;
 
 import com.example.trading.order_service.Enums.OrderStatus;
 import com.example.trading.order_service.dto.EventEnvelope;
-import com.example.trading.order_service.dto.OrderEventPayload;
+import com.example.trading.order_service.dto.OrderPlacedEvent;
 import com.example.trading.order_service.entity.Order;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
@@ -31,8 +31,8 @@ public class OrderService {
             }
 
             // Publish single Kafka event
-            OrderEventPayload payload = buildEventPayload(order);
-            EventEnvelope<OrderEventPayload> envelope = new EventEnvelope<>(
+            OrderPlacedEvent payload = buildEventPayload(order);
+            EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
                     "OrderStatusChanged",
                     "v1",
                     UUID.randomUUID().toString(),
@@ -46,8 +46,8 @@ public class OrderService {
         });
     }
 
-    private OrderEventPayload buildEventPayload(Order order) {
-        OrderEventPayload payload = new OrderEventPayload();
+    private OrderPlacedEvent buildEventPayload(Order order) {
+        OrderPlacedEvent payload = new OrderPlacedEvent();
         payload.setOrderId(order.getId().toString());
         payload.setUserId(order.getUserId().toString());
         payload.setSymbol(order.getInstrumentSymbol());
