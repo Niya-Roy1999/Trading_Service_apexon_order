@@ -1,11 +1,9 @@
 package com.example.trading.order_service.kafka;
 
-import jakarta.websocket.SendResult;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.util.concurrent.ListenableFuture;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;

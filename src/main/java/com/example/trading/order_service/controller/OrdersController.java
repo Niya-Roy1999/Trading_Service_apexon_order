@@ -1,14 +1,12 @@
 package com.example.trading.order_service.controller;
 
 import com.example.trading.order_service.Enums.OrderStatus;
-import com.example.trading.order_service.Enums.OrderType;
 import com.example.trading.order_service.Enums.TimeInForce;
-import com.example.trading.order_service.dto.CreateMarketOrderRequest;
-import com.example.trading.order_service.dto.EventEnvelope;
-import com.example.trading.order_service.dto.OrderPlacedEvent;
+import com.example.trading.order_service.dto.*;
 import com.example.trading.order_service.entity.Order;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
+import com.example.trading.order_service.service.OrderService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +28,8 @@ public class OrdersController {
 
     private  final OrderRepository orderRepo;
     private  final OrderEventsProducer producer;
+    private final OrderService orderService;
+
 
     @PostMapping("/orders")
     @Transactional
@@ -47,7 +47,7 @@ public class OrdersController {
                 .instrumentSymbol(req.getInstrumentSymbol())
                 .orderSide(req.getOrderSide())
                 .type(req.getOrderType())
-                .status(OrderStatus.PENDING)
+                .status(OrderStatus.NEW)
                 .totalQuantity(req.getQuantity())
                 .filledQuantity(BigDecimal.ZERO)
                 .timeInForce(req.getTimeInForce() == null ? TimeInForce.IMMEDIATE_OR_CANCEL : req.getTimeInForce())
@@ -105,6 +105,13 @@ public class OrdersController {
             // 6. Return the saved order as response
             return ResponseEntity.ok(saved);
         }
+
+    @PutMapping("/{id}/review-confirm")
+    public ResponseEntity<Order> reviewAndConfirmOrder(@PathVariable Long id) {
+        return orderService.reviewAndConfirmOrder(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @GetMapping("/orders/{orderId}")
     public ResponseEntity<Order> getOrder(@PathVariable Long orderId) {
