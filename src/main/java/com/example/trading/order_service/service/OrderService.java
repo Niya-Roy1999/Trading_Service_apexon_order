@@ -33,7 +33,7 @@ public class OrderService {
         // 1. Idempotency check: reject duplicate client_order_id for the same user
         if (req.getClientOrderId() != null &&
                 orderRepo.findByUserIdAndClientOrderId(req.getUserId(), req.getClientOrderId()).isPresent()) {
-            log.info("There is a conflict and this cant be done");
+            log.info("There is a conflict and this can't be done");
             return null;
         }
         // 2. Build the Order entity
@@ -56,7 +56,19 @@ public class OrderService {
         // 3. Save the order to the database (ID will be generated here)
         Order saved = orderRepo.save(order);
 
-        // 4. Map entity -> DTO
+        //4. Publish single Kafka event
+        OrderPlacedEvent payload = buildEventPayload(order);
+        EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
+                "OrderStatusChanged",
+                "v2",
+                UUID.randomUUID().toString(),
+                "order-service",
+                Instant.now().toString(),
+                payload
+        );
+        producer.publish("orders.v2", order.getId().toString(), envelope);
+
+        // 5. Map entity -> DTO
         return  CreateMarketOrderResponse.builder()
                 .orderId(saved.getId().toString())
                 .userId(saved.getUserId())
@@ -67,7 +79,7 @@ public class OrderService {
                 .orderStatus(saved.getStatus())
                 .totalQuantity(saved.getTotalQuantity())
                 .filledQuantity(saved.getFilledQuantity())
-                .averageFillPrice(saved.getAvgFillPrice()) // assuming entity has it
+                .averageFillPrice(saved.getAvgFillPrice())
                 .notionalValue(saved.getNotionalValue())
                 .timeInForce(saved.getTimeInForce())
                 .clientOrderId(saved.getClientOrderId())

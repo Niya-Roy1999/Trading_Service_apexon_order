@@ -1,17 +1,23 @@
 package com.example.trading.order_service.controller;
 
-import com.example.trading.order_service.dto.*;
+import com.example.trading.order_service.dto.CreateMarketOrderRequest;
+import com.example.trading.order_service.dto.CreateMarketOrderResponse;
+import com.example.trading.order_service.dto.pnl.PnlResult;
 import com.example.trading.order_service.entity.Order;
-import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
 import com.example.trading.order_service.service.OrderService;
+import com.example.trading.order_service.service.ProfitAndLossService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -20,8 +26,8 @@ import java.util.List;
 public class OrdersController {
 
     private  final OrderRepository orderRepo;
-    private  final OrderEventsProducer producer;
     private final OrderService orderService;
+    private final ProfitAndLossService pnlService;
 
     @PostMapping("/orders")
     @Transactional
@@ -53,7 +59,12 @@ public class OrdersController {
         return orderRepo.findByUserIdOrderByPlacedAtDesc(userId);
     }
 
+    @PostMapping("/pnl/calculate/{userId}")
+    public ResponseEntity<PnlResult> calculatePnlForUser(
+            @PathVariable Long userId,
+            @RequestBody Map<String, BigDecimal> marketPrices) {
 
-
-
+        PnlResult pnlResult = pnlService.calculatePnlForUser(userId, marketPrices);
+        return ResponseEntity.ok(pnlResult);
+    }
 }
