@@ -44,6 +44,7 @@ public class OrderService {
                 .orderSide(req.getOrderSide())
                 .type(req.getOrderType())
                 .status(OrderStatus.NEW)
+                .limitPrice(req.getPrice())
                 .totalQuantity(req.getQuantity())
                 .filledQuantity(BigDecimal.ZERO)
                 .timeInForce(req.getTimeInForce() == null ? TimeInForce.IMMEDIATE_OR_CANCEL : req.getTimeInForce())
@@ -141,6 +142,7 @@ public class OrderService {
         payload.setSymbol(order.getInstrumentSymbol());
         payload.setSide(order.getOrderSide().name());
         payload.setType(order.getType().name());
+        payload.setPrice(order.getLimitPrice());
         payload.setQuantity(order.getTotalQuantity());
         payload.setTimeInForce(order.getTimeInForce().name());
         payload.setStatus(order.getStatus().name());

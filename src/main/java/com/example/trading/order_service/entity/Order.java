@@ -77,6 +77,9 @@ public class Order {
     @Column(name = "display_quantity")
     private Integer displayQuantity;
 
+    @Column(name = "limit_price")
+    private BigDecimal limitPrice;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "time_in_force", nullable = false, length = 8)
     private TimeInForce timeInForce = TimeInForce.IMMEDIATE_OR_CANCEL;
