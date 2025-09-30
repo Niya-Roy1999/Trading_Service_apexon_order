@@ -38,9 +38,7 @@ public class OrdersController {
 
     @PutMapping("/{id}/review-confirm")
     public ResponseEntity<CreateMarketOrderResponse> reviewAndConfirmOrder(@PathVariable Long id) {
-        return orderService.reviewAndConfirmOrder(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity.ok(orderService.reviewAndConfirmOrder(id));
     }
 
     @GetMapping("/orders/{orderId}")

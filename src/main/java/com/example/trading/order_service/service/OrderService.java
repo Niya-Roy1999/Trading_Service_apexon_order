@@ -7,6 +7,7 @@ import com.example.trading.order_service.dto.CreateMarketOrderResponse;
 import com.example.trading.order_service.dto.EventEnvelope;
 import com.example.trading.order_service.dto.OrderPlacedEvent;
 import com.example.trading.order_service.entity.Order;
+import com.example.trading.order_service.exception.OrderNotFoundException;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
 import jakarta.transaction.Transactional;
@@ -92,48 +93,53 @@ public class OrderService {
     }
 
     @Transactional
-    public Optional<CreateMarketOrderResponse> reviewAndConfirmOrder(Long id) {
-        return orderRepo.findById(id).map(order -> {
-            // Update status if order is NEW
-            if (order.getStatus() == OrderStatus.NEW) {
-                order.setStatus(OrderStatus.PENDING);
-                order.setUpdatedAt(OffsetDateTime.now());
-                order.setConfirmed(true);
-            }
-            // Publish single Kafka event
-            OrderPlacedEvent payload = buildEventPayload(order);
-            EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
-                    "OrderStatusChanged",
-                    "v1",
-                    UUID.randomUUID().toString(),
-                    "order-service",
-                    Instant.now().toString(),
-                    payload
-            );
-            producer.publish("orders.v1", order.getId().toString(), envelope);
-            // 3. Map entity -> DTO
-            return CreateMarketOrderResponse.builder()
-                    .orderId(order.getId().toString())
-                    .userId(order.getUserId())
-                    .instrumentId(order.getInstrumentId())
-                    .instrumentSymbol(order.getInstrumentSymbol())
-                    .orderSide(order.getOrderSide())
-                    .orderType(order.getType())
-                    .orderStatus(order.getStatus())
-                    .totalQuantity(order.getTotalQuantity())
-                    .filledQuantity(order.getFilledQuantity())
-                    .averageFillPrice(order.getAvgFillPrice())
-                    .notionalValue(order.getNotionalValue())
-                    .timeInForce(order.getTimeInForce())
-                    .clientOrderId(order.getClientOrderId())
-                    .placedAt(order.getPlacedAt())
-                    .updatedAt(order.getUpdatedAt())
-                    .executedAt(order.getExecutedAt())
-                    .items(Collections.emptyList()) // until executions happen
-                    .isConfirmed(order.isConfirmed())
-                    .build();
-        });
+    public CreateMarketOrderResponse reviewAndConfirmOrder(Long id) {
+        Order order = orderRepo.findById(id)
+                .orElseThrow(() -> new OrderNotFoundException(id));
+
+        // Update status if order is NEW
+        if (order.getStatus() == OrderStatus.NEW) {
+            order.setStatus(OrderStatus.PENDING);
+            order.setUpdatedAt(OffsetDateTime.now());
+            order.setConfirmed(true);
+            order = orderRepo.save(order); // persist changes
+        }
+
+        // Publish single Kafka event
+        OrderPlacedEvent payload = buildEventPayload(order);
+        EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
+                "OrderStatusChanged",
+                "v1",
+                UUID.randomUUID().toString(),
+                "order-service",
+                Instant.now().toString(),
+                payload
+        );
+        producer.publish("orders.v1", order.getId().toString(), envelope);
+
+        // Map entity -> DTO
+        return CreateMarketOrderResponse.builder()
+                .orderId(order.getId().toString())
+                .userId(order.getUserId())
+                .instrumentId(order.getInstrumentId())
+                .instrumentSymbol(order.getInstrumentSymbol())
+                .orderSide(order.getOrderSide())
+                .orderType(order.getType())
+                .orderStatus(order.getStatus())
+                .totalQuantity(order.getTotalQuantity())
+                .filledQuantity(order.getFilledQuantity())
+                .averageFillPrice(order.getAvgFillPrice())
+                .notionalValue(order.getNotionalValue())
+                .timeInForce(order.getTimeInForce())
+                .clientOrderId(order.getClientOrderId())
+                .placedAt(order.getPlacedAt())
+                .updatedAt(order.getUpdatedAt())
+                .executedAt(order.getExecutedAt())
+                .items(Collections.emptyList()) // until executions happen
+                .isConfirmed(order.isConfirmed())
+                .build();
     }
+
 
     private OrderPlacedEvent buildEventPayload(Order order) {
         OrderPlacedEvent payload = new OrderPlacedEvent();
