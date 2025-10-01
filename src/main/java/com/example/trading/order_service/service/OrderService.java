@@ -7,6 +7,7 @@ import com.example.trading.order_service.dto.CreateMarketOrderResponse;
 import com.example.trading.order_service.dto.EventEnvelope;
 import com.example.trading.order_service.dto.OrderPlacedEvent;
 import com.example.trading.order_service.entity.Order;
+import com.example.trading.order_service.exception.DuplicateOrderException;
 import com.example.trading.order_service.exception.OrderNotFoundException;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
@@ -19,7 +20,6 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Collections;
-import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -34,8 +34,8 @@ public class OrderService {
         // 1. Idempotency check: reject duplicate client_order_id for the same user
         if (req.getClientOrderId() != null &&
                 orderRepo.findByUserIdAndClientOrderId(req.getUserId(), req.getClientOrderId()).isPresent()) {
-            log.info("There is a conflict and this can't be done");
-            return null;
+            log.error("There is a conflict and this can't be done");
+            throw new DuplicateOrderException(req.getClientOrderId());
         }
         // 2. Build the Order entity
         Order order = Order.builder()
