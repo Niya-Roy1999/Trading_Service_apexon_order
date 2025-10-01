@@ -68,7 +68,6 @@ public class OrderService {
                 Instant.now().toString(),
                 payload
         );
-        producer.publish("orders.v2", order.getId().toString(), envelope);
 
         // 5. Map entity -> DTO
         return  CreateMarketOrderResponse.builder()
