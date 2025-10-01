@@ -58,18 +58,7 @@ public class OrderService {
         // 3. Save the order to the database (ID will be generated here)
         Order saved = orderRepo.save(order);
 
-        //4. Publish single Kafka event
-        OrderPlacedEvent payload = buildEventPayload(order);
-        EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
-                "OrderStatusChanged",
-                "v2",
-                UUID.randomUUID().toString(),
-                "order-service",
-                Instant.now().toString(),
-                payload
-        );
-
-        // 5. Map entity -> DTO
+        // 4. Map entity -> DTO
         return  CreateMarketOrderResponse.builder()
                 .orderId(saved.getId().toString())
                 .userId(saved.getUserId())
