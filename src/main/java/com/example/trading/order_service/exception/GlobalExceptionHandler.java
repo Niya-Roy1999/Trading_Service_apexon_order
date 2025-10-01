@@ -22,6 +22,16 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(DuplicateOrderException.class)
+    public ResponseEntity<Map<String, Object>> handleDuplicateOrder(DuplicateOrderException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", Instant.now().toString());
+        error.put("status", HttpStatus.CONFLICT.value());
+        error.put("error", "Duplicate Order");
+        error.put("message", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.CONFLICT);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex) {
         Map<String, Object> error = new HashMap<>();
