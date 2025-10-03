@@ -89,7 +89,7 @@ public class OrderService {
         if (order.getStatus() == OrderStatus.NEW) {
             order.setStatus(OrderStatus.PENDING);
             order.setUpdatedAt(OffsetDateTime.now());
-            order.setConfirmed(true);
+            order.setIsConfirmed(true);
             order = orderRepo.save(order); // persist changes
         }
 
@@ -124,7 +124,7 @@ public class OrderService {
                 .updatedAt(order.getUpdatedAt())
                 .executedAt(order.getExecutedAt())
                 .items(Collections.emptyList()) // until executions happen
-                .isConfirmed(order.isConfirmed())
+                .isConfirmed(order.getIsConfirmed())
                 .build();
     }
 

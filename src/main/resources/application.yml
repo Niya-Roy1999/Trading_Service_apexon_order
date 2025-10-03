@@ -22,4 +22,11 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: "*"
+        spring.json.trusted.packages: "*"F
+
+logging:
+  level:
+    root: WARN                 # Only WARN and ERROR globally
+    org.springframework: WARN   # Spring Framework logs at WARNF
+    org.apache.kafka: WARN      # Kafka logs at WARN
+    com.example: INFO           # Your application logs at INFO

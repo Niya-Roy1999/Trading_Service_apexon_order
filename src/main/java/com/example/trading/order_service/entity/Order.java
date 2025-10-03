@@ -97,7 +97,10 @@ public class Order {
     private OffsetDateTime executedAt;
 
     @Column(name = "isConfirmed")
-    private boolean isConfirmed;
+    private Boolean isConfirmed;
+
+    public Boolean getIsConfirmed() {return isConfirmed;}
+    public void setIsConfirmed(Boolean isConfirmed) {this.isConfirmed = isConfirmed;}
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Executions> items = new ArrayList<>();
