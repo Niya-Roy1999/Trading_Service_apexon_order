@@ -1,10 +1,11 @@
 package com.example.trading.order_service.dto;
 
 import lombok.Data;
+
 import java.math.BigDecimal;
 
 @Data
-public class OrderPlacedEvent{
+public class OrderPlacedEvent {
     private String orderId;
     private String userId;
     private String symbol;

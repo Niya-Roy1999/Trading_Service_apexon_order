@@ -2,10 +2,7 @@ package com.example.trading.order_service.service;
 
 import com.example.trading.order_service.Enums.OrderStatus;
 import com.example.trading.order_service.Enums.TimeInForce;
-import com.example.trading.order_service.dto.CreateMarketOrderRequest;
-import com.example.trading.order_service.dto.CreateMarketOrderResponse;
-import com.example.trading.order_service.dto.EventEnvelope;
-import com.example.trading.order_service.dto.OrderPlacedEvent;
+import com.example.trading.order_service.dto.*;
 import com.example.trading.order_service.entity.Order;
 import com.example.trading.order_service.exception.DuplicateOrderException;
 import com.example.trading.order_service.exception.OrderNotFoundException;
@@ -34,7 +31,6 @@ public class OrderService {
         // 1. Idempotency check: reject duplicate client_order_id for the same user
         if (req.getClientOrderId() != null &&
                 orderRepo.findByUserIdAndClientOrderId(req.getUserId(), req.getClientOrderId()).isPresent()) {
-            log.error("There is a conflict and this can't be done");
             throw new DuplicateOrderException(req.getClientOrderId());
         }
         // 2. Build the Order entity
@@ -58,8 +54,15 @@ public class OrderService {
         // 3. Save the order to the database (ID will be generated here)
         Order saved = orderRepo.save(order);
 
-        // 4. Map entity -> DTO
-        return  CreateMarketOrderResponse.builder()
+        // 4. Produce to order-validation topic
+        OrderValidationEvent event = new OrderValidationEvent(saved.getId().toString(), saved.getUserId(), saved.getInstrumentSymbol(), saved.getTotalQuantity());
+        EventEnvelope<OrderValidationEvent> envelope = new EventEnvelope<>(
+                "OrderValidationRequested", "v1", UUID.randomUUID().toString(),
+                "order-service", Instant.now().toString(), event
+        );
+        producer.publish("order-validation-topic", saved.getId().toString(), envelope);
+        // 5. Map entity -> DTO
+        return CreateMarketOrderResponse.builder()
                 .orderId(saved.getId().toString())
                 .userId(saved.getUserId())
                 .instrumentId(saved.getInstrumentId())
@@ -77,6 +80,7 @@ public class OrderService {
                 .updatedAt(saved.getUpdatedAt())
                 .executedAt(saved.getExecutedAt()) // null initially
                 .items(Collections.emptyList())    // empty list until executions happen
+                .isConfirmed(saved.isConfirmed())
                 .build();
     }
 

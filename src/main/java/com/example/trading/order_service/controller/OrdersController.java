@@ -25,7 +25,7 @@ import java.util.Map;
 public class OrdersController {
 
     // Working on new design
-    private  final OrderRepository orderRepo;
+    private final OrderRepository orderRepo;
     private final OrderService orderService;
     private final ProfitAndLossService pnlService;
 
