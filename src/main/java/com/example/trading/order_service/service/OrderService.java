@@ -55,7 +55,22 @@ public class OrderService {
         Order saved = orderRepo.save(order);
 
         // 4. Produce to order-validation topic
-        OrderValidationEvent event = new OrderValidationEvent(saved.getId().toString(), saved.getUserId(), saved.getInstrumentSymbol(), saved.getTotalQuantity());
+        OrderValidationEvent event = new OrderValidationEvent(
+                saved.getId().toString(),
+                saved.getUserId(),
+                saved.getInstrumentId(),
+                saved.getInstrumentSymbol(),
+                saved.getOrderSide().name(),
+                saved.getType().name(),
+                saved.getTimeInForce().name(),
+                saved.getTotalQuantity(),
+                saved.getLimitPrice(),
+                saved.getStopPrice(),
+                saved.getTrailingOffset(),
+                saved.getTrailingType(),
+                saved.getDisplayQuantity(),
+                saved.getClientOrderId()
+        );
         EventEnvelope<OrderValidationEvent> envelope = new EventEnvelope<>(
                 "OrderValidationRequested", "v1", UUID.randomUUID().toString(),
                 "order-service", Instant.now().toString(), event
