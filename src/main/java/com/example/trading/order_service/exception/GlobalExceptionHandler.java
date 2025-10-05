@@ -32,6 +32,16 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(OrderProcessingException.class)
+    public ResponseEntity<Map<String, Object>> handleOrderProcessingException (OrderProcessingException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", Instant.now().toString());
+        error.put("status", HttpStatus.EXPECTATION_FAILED.value());
+        error.put("error", "Exception while processing the order");
+        error.put("message", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.EXPECTATION_FAILED);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleGenericException(Exception ex) {
         Map<String, Object> error = new HashMap<>();

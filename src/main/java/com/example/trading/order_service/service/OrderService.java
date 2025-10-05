@@ -1,17 +1,26 @@
 package com.example.trading.order_service.service;
 
+import com.example.trading.order_service.Enums.OrderSide;
 import com.example.trading.order_service.Enums.OrderStatus;
 import com.example.trading.order_service.Enums.TimeInForce;
-import com.example.trading.order_service.dto.*;
+import com.example.trading.order_service.dto.CreateMarketOrderRequest;
+import com.example.trading.order_service.dto.CreateMarketOrderResponse;
+import com.example.trading.order_service.dto.EventEnvelope;
+import com.example.trading.order_service.dto.OrderPlacedEvent;
 import com.example.trading.order_service.entity.Order;
+import com.example.trading.order_service.entity.Wallet;
 import com.example.trading.order_service.exception.DuplicateOrderException;
 import com.example.trading.order_service.exception.OrderNotFoundException;
+import com.example.trading.order_service.exception.OrderProcessingException;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -25,6 +34,10 @@ import java.util.UUID;
 public class OrderService {
     private final OrderRepository orderRepo;
     private final OrderEventsProducer producer;
+    private final RestTemplate restTemplate;
+
+    @Value("${wallet.service.base-url}")
+    private String walletServiceBaseUrl;
 
     @Transactional
     public CreateMarketOrderResponse createMarketOrder(CreateMarketOrderRequest req) {
@@ -33,7 +46,24 @@ public class OrderService {
                 orderRepo.findByUserIdAndClientOrderId(req.getUserId(), req.getClientOrderId()).isPresent()) {
             throw new DuplicateOrderException(req.getClientOrderId());
         }
-        // 2. Build the Order entity
+        // 2. Lookup wallet by userId
+        String walletUrl = walletServiceBaseUrl + "/wallets/account/" + req.getUserId();
+        ResponseEntity<Wallet[]> response = restTemplate.getForEntity(walletUrl, Wallet[].class);
+        Wallet[] wallets = response.getBody();
+        if (wallets == null || wallets.length == 0) {
+            throw new OrderProcessingException("No wallet found for user id: " + req.getUserId());
+        }
+        Long walletId = wallets[0].getWalletId();
+
+        // 3. Deduct balance for BUY order
+        if (req.getOrderSide() == OrderSide.BUY) {
+            BigDecimal totalCost = req.getPrice().multiply(req.getQuantity());
+            String deductUrl = String.format("%s/wallets/%d/deduct?amount=%f", walletServiceBaseUrl, walletId, totalCost.doubleValue());
+            restTemplate.postForObject(deductUrl, null, Wallet.class);
+            log.info("Deducted {} from wallet {} for BUY order", totalCost, walletId);
+        }
+
+        // 4. Build the Order entity
         Order order = Order.builder()
                 .userId(req.getUserId())
                 .instrumentId(req.getInstrumentId())
@@ -51,32 +81,32 @@ public class OrderService {
                 .notionalValue(req.getPrice() != null ? req.getPrice().multiply(req.getQuantity()) : BigDecimal.ZERO)
                 .build();
 
-        // 3. Save the order to the database (ID will be generated here)
+        // 5. Save the order to the database (ID will be generated here)
         Order saved = orderRepo.save(order);
 
-        // 4. Produce to order-validation topic
-        OrderValidationEvent event = new OrderValidationEvent(
-                saved.getId().toString(),
-                saved.getUserId(),
-                saved.getInstrumentId(),
-                saved.getInstrumentSymbol(),
-                saved.getOrderSide().name(),
-                saved.getType().name(),
-                saved.getTimeInForce().name(),
-                saved.getTotalQuantity(),
-                saved.getLimitPrice(),
-                saved.getStopPrice(),
-                saved.getTrailingOffset(),
-                saved.getTrailingType(),
-                saved.getDisplayQuantity(),
-                saved.getClientOrderId()
-        );
-        EventEnvelope<OrderValidationEvent> envelope = new EventEnvelope<>(
-                "OrderValidationRequested", "v1", UUID.randomUUID().toString(),
+        // 6. Produce to order-placed topic with event envelope
+        OrderPlacedEvent event = new OrderPlacedEvent();
+        event.setOrderId(saved.getId().toString());
+        event.setUserId(saved.getUserId().toString());
+        event.setSymbol(saved.getInstrumentSymbol());
+        event.setSide(saved.getOrderSide().name());
+        event.setType(saved.getType().name());
+        event.setQuantity(saved.getTotalQuantity());
+        event.setPrice(saved.getLimitPrice());
+        event.setStopPrice(saved.getStopPrice());
+        event.setTrailingOffset(saved.getTrailingOffset());
+        event.setTrailingType(saved.getTrailingType());
+        event.setDisplayQuantity(saved.getDisplayQuantity());
+        event.setTimeInForce(saved.getTimeInForce().name());
+        event.setStatus(saved.getStatus().name());
+
+        EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
+                "OrderPlaced", "v1", UUID.randomUUID().toString(),
                 "order-service", Instant.now().toString(), event
         );
-        producer.publish("order-validation-topic", saved.getId().toString(), envelope);
-        // 5. Map entity -> DTO
+        producer.publish("order-placed-topic", saved.getId().toString(), envelope);
+
+        // 7. Map entity -> DTO and return response
         return CreateMarketOrderResponse.builder()
                 .orderId(saved.getId().toString())
                 .userId(saved.getUserId())
@@ -93,8 +123,8 @@ public class OrderService {
                 .clientOrderId(saved.getClientOrderId())
                 .placedAt(saved.getPlacedAt())
                 .updatedAt(saved.getUpdatedAt())
-                .executedAt(saved.getExecutedAt()) // null initially
-                .items(Collections.emptyList())    // empty list until executions happen
+                .executedAt(saved.getExecutedAt())
+                .items(Collections.emptyList())
                 .isConfirmed(saved.isConfirmed())
                 .build();
     }

@@ -28,3 +28,7 @@ spring:
       waiting-approval: order-waiting-approval-topic
       approved: order-approved-topic
       rejected: order-rejected-topic
+
+wallet:
+  service:
+    base-url=http://localhost:8082
