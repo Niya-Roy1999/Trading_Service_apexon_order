@@ -1,6 +1,9 @@
 package com.example.trading.order_service.entity;
 
-import com.example.trading.order_service.Enums.*;
+import com.example.trading.order_service.Enums.OrderSide;
+import com.example.trading.order_service.Enums.OrderStatus;
+import com.example.trading.order_service.Enums.OrderType;
+import com.example.trading.order_service.Enums.TimeInForce;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -97,10 +100,7 @@ public class Order {
     private OffsetDateTime executedAt;
 
     @Column(name = "isConfirmed")
-    private Boolean isConfirmed;
-
-    public Boolean getIsConfirmed() {return isConfirmed;}
-    public void setIsConfirmed(Boolean isConfirmed) {this.isConfirmed = isConfirmed;}
+    private boolean isConfirmed;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Executions> items = new ArrayList<>();

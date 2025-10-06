@@ -13,10 +13,12 @@ public class OrderFillRequest {
     @DecimalMin("0.00000001")
     private BigDecimal quantity;
 
-    @NotNull @DecimalMin("0")
+    @NotNull
+    @DecimalMin("0")
     private BigDecimal executedPrice;
 
-    @NotNull @DecimalMin("0")
+    @NotNull
+    @DecimalMin("0")
     private BigDecimal fees;
 
     private String executionId;

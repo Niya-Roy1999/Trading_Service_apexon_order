@@ -17,16 +17,18 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
-      group-id: exchange-service
-      auto-offset-reset: earliest
+      group-id: order-service-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: "*"F
+        spring.json.trusted.packages: '*'
+    topics:
+      validation: order-validation-topic
+      main: order-topic
+      waiting-approval: order-waiting-approval-topic
+      approved: order-approved-topic
+      rejected: order-rejected-topic
 
-logging:
-  level:
-    root: WARN                 # Only WARN and ERROR globally
-    org.springframework: WARN   # Spring Framework logs at WARNF
-    org.apache.kafka: WARN      # Kafka logs at WARN
-    com.example: INFO           # Your application logs at INFO
+wallet:
+  service:
+    base-url=http://localhost:8082
