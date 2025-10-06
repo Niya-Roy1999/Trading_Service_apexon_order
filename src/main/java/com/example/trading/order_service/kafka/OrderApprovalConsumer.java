@@ -1,31 +1,123 @@
 package com.example.trading.order_service.kafka;
 
+import com.example.trading.order_service.Enums.OrderType;
+import com.example.trading.order_service.dto.ComplianceApproved;
 import com.example.trading.order_service.dto.EventEnvelope;
-import com.example.trading.order_service.dto.OrderApprovalEvent;
-import com.example.trading.order_service.dto.OrderRejectedEvent;
+import com.example.trading.order_service.dto.Order.*;
 import com.example.trading.order_service.entity.Order;
 import com.example.trading.order_service.repository.OrderRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-import java.time.Instant;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class OrderApprovalConsumer {
 
-    @Autowired
-    private OrderEventsProducer producer;
+    private final OrderEventsProducer kafkaProducer;
+    private final OrderRepository orderRepository;
 
-    @Autowired
-    private OrderRepository orderRepository;
+    @Value("${spring.kafka.topics.exchange}")
+    private String exchangeTopic;
 
-    @KafkaListener(topics = "order-waiting-approval-topic")
+    private final ObjectMapper objectMapper;
+
+    @KafkaListener(
+            topics = "${spring.kafka.topics.order-approved}",
+            groupId = "order-service-group",
+            containerFactory = "stringKafkaListenerContainerFactory"
+    )
+    public void consumeApproval(String message) {
+        try {
+            EventEnvelope<ComplianceApproved> envelope = objectMapper.readValue(
+                    message,
+                    new TypeReference<EventEnvelope<ComplianceApproved>>() {}
+            );
+
+            ComplianceApproved payload = envelope.getPayload();
+            log.info("Deserialized payload from Compliance service: {}", payload);
+            Long orderId = Long.parseLong(payload.getOrderId());
+
+            Order order = orderRepository.findById(orderId).orElseThrow(
+                    () -> new IllegalArgumentException("Order not found for id: " + orderId));
+            log.info("Fetched order from DB: id={}, userId={}, type={}, quantity={}",
+                    order.getId(),
+                    order.getUserId(),
+                    order.getType(),
+                    order.getTotalQuantity());
+
+            BaseOrder transformedOrder = transformOrder(order);
+            log.info("Transformed order ready to process/send: {}", transformedOrder);
+            kafkaProducer.publish(exchangeTopic, String.valueOf(order.getId()), transformedOrder);
+        } catch (JsonProcessingException e) {
+            log.error("Error parsing compliance approved message", e);
+        } catch (Exception e) {
+            log.error("Error processing orderId from compliance approved", e);
+        }
+    }
+
+    private BaseOrder transformOrder(Order order) {
+        if (order.getType() == OrderType.LIMIT) {
+            return LimitOrder.builder()
+                    .orderId(String.valueOf(order.getId()))
+                    .userId(String.valueOf(order.getUserId()))
+                    .symbol(order.getInstrumentSymbol())
+                    .side(order.getOrderSide())
+                    .type(order.getType())
+                    .quantity(order.getTotalQuantity().intValue())
+                    .timeInForce(order.getTimeInForce())
+                    .status(order.getStatus())
+                    .price(order.getLimitPrice() != null ? order.getLimitPrice().doubleValue() : null)
+                    .build();
+        } else if (order.getType() == OrderType.MARKET) {
+            return MarketOrder.builder()
+                    .orderId(String.valueOf(order.getId()))
+                    .userId(String.valueOf(order.getUserId()))
+                    .symbol(order.getInstrumentSymbol())
+                    .side(order.getOrderSide())
+                    .type(order.getType())
+                    .quantity(order.getTotalQuantity().intValue())
+                    .timeInForce(order.getTimeInForce())
+                    .status(order.getStatus())
+                    .build();
+        } else if (order.getType() == OrderType.STOP_LIMIT) {
+            return StopLimit.builder()
+                    .orderId(String.valueOf(order.getId()))
+                    .userId(String.valueOf(order.getUserId()))
+                    .symbol(order.getInstrumentSymbol())
+                    .side(order.getOrderSide())
+                    .type(order.getType())
+                    .quantity(order.getTotalQuantity().intValue())
+                    .timeInForce(order.getTimeInForce())
+                    .status(order.getStatus())
+                    .limitPrice(order.getLimitPrice() != null ? order.getLimitPrice().doubleValue() : null)
+                    .stopPrice(order.getStopPrice() != null ? order.getStopPrice().doubleValue() : null)
+                    .build();
+        } else if (order.getType() == OrderType.STOP_MARKET) {
+            return StopMarket.builder()
+                    .orderId(String.valueOf(order.getId()))
+                    .userId(String.valueOf(order.getUserId()))
+                    .symbol(order.getInstrumentSymbol())
+                    .side(order.getOrderSide())
+                    .type(order.getType())
+                    .quantity(order.getTotalQuantity().intValue())
+                    .timeInForce(order.getTimeInForce())
+                    .status(order.getStatus())
+                    .build();
+        }
+        throw new IllegalArgumentException("Unsupported order type: " + order.getType());
+    }
+}
+
+
+     /*
+   @KafkaListener(topics = "order-waiting-approval-topic")
     public void handleApproval(EventEnvelope<OrderApprovalEvent> envelope) {
         OrderApprovalEvent event = envelope.getPayload();
         String orderId = event.getOrderId();
@@ -68,5 +160,4 @@ public class OrderApprovalConsumer {
             );
             producer.publish("order-rejected-topic", orderId, rejectEnvelope);
         }
-    }
-}
+    } */

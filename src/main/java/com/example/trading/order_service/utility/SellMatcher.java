@@ -4,7 +4,6 @@ import com.example.trading.order_service.dto.pnl.Lot;
 import com.example.trading.order_service.entity.Executions;
 import com.example.trading.order_service.entity.Order;
 import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Deque;
