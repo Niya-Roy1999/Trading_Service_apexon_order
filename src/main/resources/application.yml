@@ -26,9 +26,16 @@ spring:
       validation: order-validation-topic
       main: order-topic
       waiting-approval: order-waiting-approval-topic
-      approved: order-approved-topic
-      rejected: order-rejected-topic
+      order-approved: order_approved_topic
+      order-rejected: order_rejected_topic
+      exchange: execution.v1
 
 wallet:
   service:
-    base-url=http://localhost:8082
+    base-url: http://localhost:8082
+
+logging:
+  level:
+    root: INFO
+    org.springframework.kafka: WARN   # Spring Kafka framework
+    org.apache.kafka: WARN           # Kafka client internals
