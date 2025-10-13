@@ -24,7 +24,7 @@ import java.util.Map;
 @RequestMapping("/api")
 public class OrdersController {
 
-    private  final OrderRepository orderRepo;
+    private final OrderRepository orderRepo;
     private final OrderService orderService;
     private final ProfitAndLossService pnlService;
 

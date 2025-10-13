@@ -13,13 +13,12 @@ import java.util.Map;
 @RequiredArgsConstructor
 
 public class OrderEventsProducer {
-    private  final KafkaTemplate<String,Object> kafkaTemplate;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
-    public void publish(String topic,String orderId,Object payload, Map<String,String> headers)
-    {
+    public void publish(String topic, String orderId, Object payload, Map<String, String> headers) {
         ProducerRecord<String, Object> record = new ProducerRecord<>(topic, orderId, payload);
 
-        if(headers != null && !headers.isEmpty()) {
+        if (headers != null && !headers.isEmpty()) {
             headers.forEach((k, v) ->
                     record.headers().add(k, v.getBytes(StandardCharsets.UTF_8)));
         }
