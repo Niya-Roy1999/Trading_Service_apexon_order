@@ -14,5 +14,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     List<Order> findByUserIdAndInstrumentIdOrderByPlacedAtDesc(Long userId, String instrumentId);
 
+    List<Order> findByUserIdAndInstrumentSymbol(Long userId, String instrumentSymbol);
+
     List<Order> findByUserIdAndStatus(Long userId, OrderStatus status);
 }

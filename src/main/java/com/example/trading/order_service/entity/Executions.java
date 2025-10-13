@@ -1,5 +1,6 @@
 package com.example.trading.order_service.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +29,7 @@ public class Executions {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_items_order"))
+    @JsonBackReference
     private Order order;
 
     @Column(name = "instrument_id", nullable = false, length = 64)

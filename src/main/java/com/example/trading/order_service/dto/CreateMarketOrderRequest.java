@@ -43,4 +43,14 @@ public class CreateMarketOrderRequest {
     private BigDecimal trailingOffset;
     private String trailingType;
     private Integer displayQuantity;
+
+    // OCO (One-Cancels-Other) specific fields
+    private String ocoGroupId;
+    private String primaryOrderType;
+    private BigDecimal primaryPrice;
+    private BigDecimal primaryStopPrice;
+    private String secondaryOrderType;
+    private BigDecimal secondaryPrice;
+    private BigDecimal secondaryStopPrice;
+    private BigDecimal secondaryTrailAmount;
 }
