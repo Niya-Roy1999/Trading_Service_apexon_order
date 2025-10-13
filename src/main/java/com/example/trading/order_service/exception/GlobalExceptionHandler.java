@@ -32,6 +32,26 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.CONFLICT);
     }
 
+<<<<<<< HEAD
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<Map<String, Object>> handleValidationException(ValidationException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", Instant.now().toString());
+        error.put("status", HttpStatus.BAD_REQUEST.value());
+        error.put("error", "Validation Error");
+        error.put("message", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(InsufficientFundsException.class)
+    public ResponseEntity<Map<String, Object>> handleInsufficientFunds(InsufficientFundsException ex) {
+        Map<String, Object> error = new HashMap<>();
+        error.put("timestamp", Instant.now().toString());
+        error.put("status", HttpStatus.PAYMENT_REQUIRED.value());
+        error.put("error", "Insufficient Funds");
+        error.put("message", ex.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.PAYMENT_REQUIRED);
+=======
     @ExceptionHandler(OrderProcessingException.class)
     public ResponseEntity<Map<String, Object>> handleOrderProcessingException (OrderProcessingException ex) {
         Map<String, Object> error = new HashMap<>();
@@ -40,6 +60,7 @@ public class GlobalExceptionHandler {
         error.put("error", "Exception while processing the order");
         error.put("message", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.EXPECTATION_FAILED);
+>>>>>>> origin/main
     }
 
     @ExceptionHandler(Exception.class)

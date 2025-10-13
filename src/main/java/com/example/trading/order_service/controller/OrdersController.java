@@ -31,29 +31,65 @@ public class OrdersController {
     @PostMapping("/orders")
     @Transactional
     public ResponseEntity<CreateMarketOrderResponse> createMarketOrder(@Valid @RequestBody CreateMarketOrderRequest req) {
-        CreateMarketOrderResponse response = orderService.createMarketOrder(req);
-        return ResponseEntity.ok(response);
+        log.info("📥 [API] Received CREATE ORDER request - User: {}, Symbol: {}, Side: {}, Type: {}, Quantity: {}, Price: {}",
+                req.getUserId(), req.getInstrumentSymbol(), req.getOrderSide(), req.getOrderType(),
+                req.getQuantity(), req.getPrice());
+
+        try {
+            CreateMarketOrderResponse response = orderService.createMarketOrder(req);
+            log.info("✅ [API] Order created successfully - OrderID: {}, Status: {}, ClientOrderId: {}",
+                    response.getOrderId(), response.getOrderStatus(), req.getClientOrderId());
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            log.error("❌ [API] Failed to create order - User: {}, Symbol: {}, Error: {}",
+                    req.getUserId(), req.getInstrumentSymbol(), e.getMessage(), e);
+            throw e;
+        }
     }
 
     @PutMapping("/{id}/review-confirm")
     public ResponseEntity<CreateMarketOrderResponse> reviewAndConfirmOrder(@PathVariable Long id) {
-        return ResponseEntity.ok(orderService.reviewAndConfirmOrder(id));
+        log.info("🔍 [API] Received REVIEW & CONFIRM request - OrderID: {}", id);
+
+        try {
+            CreateMarketOrderResponse response = orderService.reviewAndConfirmOrder(id);
+            log.info("✅ [API] Order confirmed and pipeline started - OrderID: {}, Status: {}",
+                    response.getOrderId(), response.getOrderStatus());
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            log.error("❌ [API] Failed to confirm order - OrderID: {}, Error: {}", id, e.getMessage(), e);
+            throw e;
+        }
     }
 
     @GetMapping("/orders/{orderId}")
     public ResponseEntity<Order> getOrder(@PathVariable Long orderId) {
+        log.debug("🔎 [API] GET order request - OrderID: {}", orderId);
+
         return orderRepo.findById(orderId)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .map(order -> {
+                    log.debug("✅ [API] Order found - OrderID: {}, Status: {}", orderId, order.getStatus());
+                    return ResponseEntity.ok(order);
+                })
+                .orElseGet(() -> {
+                    log.warn("⚠️ [API] Order not found - OrderID: {}", orderId);
+                    return ResponseEntity.notFound().build();
+                });
     }
 
     @GetMapping("/users/{userId}/orders")
     public List<Order> listOrdersForUser(@PathVariable Long userId,
                                          @RequestParam(value = "instrumentId", required = false) String instrumentId) {
         if (instrumentId != null) {
-            return orderRepo.findByUserIdAndInstrumentIdOrderByPlacedAtDesc(userId, instrumentId);
+            log.debug("🔎 [API] GET user orders - UserID: {}, Instrument: {}", userId, instrumentId);
+            List<Order> orders = orderRepo.findByUserIdAndInstrumentIdOrderByPlacedAtDesc(userId, instrumentId);
+            log.debug("✅ [API] Found {} orders for user {} and instrument {}", orders.size(), userId, instrumentId);
+            return orders;
         }
-        return orderRepo.findByUserIdOrderByPlacedAtDesc(userId);
+        log.debug("🔎 [API] GET all user orders - UserID: {}", userId);
+        List<Order> orders = orderRepo.findByUserIdOrderByPlacedAtDesc(userId);
+        log.debug("✅ [API] Found {} total orders for user {}", orders.size(), userId);
+        return orders;
     }
 
     @PostMapping("/pnl/calculate/{userId}")
@@ -61,7 +97,17 @@ public class OrdersController {
             @PathVariable Long userId,
             @RequestBody Map<String, BigDecimal> marketPrices) {
 
-        PnlResult pnlResult = pnlService.calculatePnlForUser(userId, marketPrices);
-        return ResponseEntity.ok(pnlResult);
+        log.info("📊 [API] Calculate P&L request - UserID: {}, Market prices for {} symbols",
+                userId, marketPrices.size());
+
+        try {
+            PnlResult pnlResult = pnlService.calculatePnlForUser(userId, marketPrices);
+            log.info("✅ [API] P&L calculated - UserID: {}, Total P&L: {}, Realized: {}, Unrealized: {}",
+                    userId, pnlResult.getTotalNet(), pnlResult.getTotalRealized(), pnlResult.getTotalUnrealized());
+            return ResponseEntity.ok(pnlResult);
+        } catch (Exception e) {
+            log.error("❌ [API] P&L calculation failed - UserID: {}, Error: {}", userId, e.getMessage(), e);
+            throw e;
+        }
     }
 }

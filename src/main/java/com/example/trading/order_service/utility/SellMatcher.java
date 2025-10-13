@@ -40,9 +40,16 @@ public class SellMatcher {
 
         // Match sell quantity against existing buy lots until fulfilled or no buy lots left
         while (remainingToSell.compareTo(BigDecimal.ZERO) > 0 && !buyQ.isEmpty()) {
+            Lot currentLot = buyQ.peekFirst();
+            if (currentLot == null) {
+                break; // Queue is empty, stop matching
+            }
+
+            BigDecimal lotQty = currentLot.getQty();
+            BigDecimal matchedQty = lotQty.min(remainingToSell);
+
             realizedForThisExec = realizedForThisExec.add(matchBuyLot(buyQ, ex, qty, remainingToSell));
-            BigDecimal lotQty = buyQ.peekFirst().getQty();
-            remainingToSell = remainingToSell.subtract(lotQty.min(remainingToSell));
+            remainingToSell = remainingToSell.subtract(matchedQty);
         }
         return realizedForThisExec;
     }

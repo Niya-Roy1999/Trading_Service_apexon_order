@@ -1,9 +1,7 @@
 package com.example.trading.order_service.entity;
 
-import com.example.trading.order_service.Enums.OrderSide;
-import com.example.trading.order_service.Enums.OrderStatus;
-import com.example.trading.order_service.Enums.OrderType;
-import com.example.trading.order_service.Enums.TimeInForce;
+import com.example.trading.order_service.Enums.*;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -53,7 +51,7 @@ public class Order {
     private OrderType type = OrderType.MARKET;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false, length = 16)
+    @Column(name = "status", nullable = false, length = 30)
     private OrderStatus status = OrderStatus.PENDING;
 
     @Column(name = "total_quantity", nullable = false, precision = 18, scale = 8)
@@ -102,7 +100,33 @@ public class Order {
     @Column(name = "isConfirmed")
     private boolean isConfirmed;
 
+    // OCO (One-Cancels-Other) specific fields
+    @Column(name = "oco_group_id", length = 64)
+    private String ocoGroupId;
+
+    @Column(name = "primary_order_type", length = 20)
+    private String primaryOrderType;
+
+    @Column(name = "primary_price", precision = 18, scale = 8)
+    private BigDecimal primaryPrice;
+
+    @Column(name = "primary_stop_price", precision = 18, scale = 8)
+    private BigDecimal primaryStopPrice;
+
+    @Column(name = "secondary_order_type", length = 20)
+    private String secondaryOrderType;
+
+    @Column(name = "secondary_price", precision = 18, scale = 8)
+    private BigDecimal secondaryPrice;
+
+    @Column(name = "secondary_stop_price", precision = 18, scale = 8)
+    private BigDecimal secondaryStopPrice;
+
+    @Column(name = "secondary_trail_amount", precision = 18, scale = 8)
+    private BigDecimal secondaryTrailAmount;
+
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Executions> items = new ArrayList<>();
 
     @PreUpdate

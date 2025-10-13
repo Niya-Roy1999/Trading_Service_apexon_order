@@ -35,13 +35,21 @@ public class ProfitAndLossService {
     //Calculates the realized and unrealized PnL for the given user based on their orders and current market prices.
     @Transactional
     public PnlResult calculatePnlForUser(Long userId, Map<String, BigDecimal> marketPrices) {
-        List<Order> orders = orderRepository.findByUserIdOrderByPlacedAtDesc(userId);
+        List<Order> allOrders = orderRepository.findByUserIdOrderByPlacedAtDesc(userId);
+
+        // Filter to only include orders with executions (filled orders)
+        List<Order> ordersWithExecutions = allOrders.stream()
+                .filter(order -> order.getItems() != null && !order.getItems().isEmpty())
+                .toList();
+
+        logger.debug("Processing P&L for user {}: {} total orders, {} with executions",
+                userId, allOrders.size(), ordersWithExecutions.size());
 
         Map<String, Deque<Lot>> buyQueues = new HashMap<>();
         Map<String, Deque<Lot>> sellQueues = new HashMap<>(); // kept for interface compatibility, not used
         Map<String, BigDecimal> realizedPnlMap = new HashMap<>();
 
-        processOrders(orders, buyQueues, sellQueues, realizedPnlMap);
+        processOrders(ordersWithExecutions, buyQueues, sellQueues, realizedPnlMap);
 
         return buildPnlResult(buyQueues, realizedPnlMap, marketPrices);
     }
@@ -52,10 +60,21 @@ public class ProfitAndLossService {
                                Map<String, BigDecimal> realized) {
 
         for (Order order : orders) {
-            if (order.getItems() == null || order.getOrderSide() == null) continue;
+            // Skip orders without executions or invalid order side
+            if (order.getItems() == null || order.getItems().isEmpty() || order.getOrderSide() == null) {
+                continue;
+            }
 
             for (Executions ex : order.getItems()) {
-                if (ex == null || ex.getInstrumentId() == null) continue;
+                // Skip invalid executions
+                if (ex == null || ex.getInstrumentId() == null || ex.getQuantity() == null) {
+                    continue;
+                }
+
+                // Skip executions with zero quantity
+                if (ex.getQuantity().compareTo(BigDecimal.ZERO) == 0) {
+                    continue;
+                }
 
                 if ("BUY".equalsIgnoreCase(order.getOrderSide().name())) {
                     processBuy(order, ex, buyQueues);
@@ -64,7 +83,8 @@ public class ProfitAndLossService {
                         BigDecimal realizedForThisExec = sellMatcher.processSell(order, ex, buyQueues, sellQueues);
                         realized.merge(ex.getInstrumentId(), realizedForThisExec, BigDecimal::add);
                     } catch (IllegalStateException e) {
-                        logger.warn("Skipping invalid sell for instrument {}: {}", ex.getInstrumentId(), e.getMessage());
+                        // Only log at debug level to avoid spam - this is expected for short sells
+                        logger.debug("Skipping sell for instrument {} without prior buys: {}", ex.getInstrumentId(), e.getMessage());
                     }
                 }
             }

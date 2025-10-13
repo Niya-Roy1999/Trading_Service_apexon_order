@@ -1,6 +1,5 @@
 package com.example.trading.order_service.service;
 
-import com.example.trading.order_service.Enums.OrderSide;
 import com.example.trading.order_service.Enums.OrderStatus;
 import com.example.trading.order_service.Enums.TimeInForce;
 import com.example.trading.order_service.dto.CreateMarketOrderRequest;
@@ -8,19 +7,14 @@ import com.example.trading.order_service.dto.CreateMarketOrderResponse;
 import com.example.trading.order_service.dto.EventEnvelope;
 import com.example.trading.order_service.dto.OrderPlacedEvent;
 import com.example.trading.order_service.entity.Order;
-import com.example.trading.order_service.entity.Wallet;
 import com.example.trading.order_service.exception.DuplicateOrderException;
 import com.example.trading.order_service.exception.OrderNotFoundException;
-import com.example.trading.order_service.exception.OrderProcessingException;
 import com.example.trading.order_service.kafka.OrderEventsProducer;
 import com.example.trading.order_service.repository.OrderRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -34,36 +28,22 @@ import java.util.UUID;
 public class OrderService {
     private final OrderRepository orderRepo;
     private final OrderEventsProducer producer;
-    private final RestTemplate restTemplate;
-
-    @Value("${wallet.service.base-url}")
-    private String walletServiceBaseUrl;
 
     @Transactional
     public CreateMarketOrderResponse createMarketOrder(CreateMarketOrderRequest req) {
+        log.info("🏭 [SERVICE] Creating new order - User: {}, Symbol: {}, Side: {}, Type: {}, Qty: {}, Price: {}",
+                req.getUserId(), req.getInstrumentSymbol(), req.getOrderSide(), req.getOrderType(),
+                req.getQuantity(), req.getPrice());
+
         // 1. Idempotency check: reject duplicate client_order_id for the same user
         if (req.getClientOrderId() != null &&
                 orderRepo.findByUserIdAndClientOrderId(req.getUserId(), req.getClientOrderId()).isPresent()) {
+            log.error("❌ [SERVICE] Duplicate order detected - ClientOrderId: {}, User: {}",
+                    req.getClientOrderId(), req.getUserId());
             throw new DuplicateOrderException(req.getClientOrderId());
         }
-        // 2. Lookup wallet by userId
-        String walletUrl = walletServiceBaseUrl + "/wallets/account/" + req.getUserId();
-        ResponseEntity<Wallet[]> response = restTemplate.getForEntity(walletUrl, Wallet[].class);
-        Wallet[] wallets = response.getBody();
-        if (wallets == null || wallets.length == 0) {
-            throw new OrderProcessingException("No wallet found for user id: " + req.getUserId());
-        }
-        Long walletId = wallets[0].getWalletId();
-
-        // 3. Deduct balance for BUY order
-        if (req.getOrderSide() == OrderSide.BUY) {
-            BigDecimal totalCost = req.getPrice().multiply(req.getQuantity());
-            String deductUrl = String.format("%s/wallets/%d/deduct?amount=%f", walletServiceBaseUrl, walletId, totalCost.doubleValue());
-            restTemplate.postForObject(deductUrl, null, Wallet.class);
-            log.info("Deducted {} from wallet {} for BUY order", totalCost, walletId);
-        }
-
-        // 4. Build the Order entity
+        log.debug("✅ [SERVICE] Idempotency check passed - ClientOrderId: {}", req.getClientOrderId());
+        // 2. Build the Order entity
         Order order = Order.builder()
                 .userId(req.getUserId())
                 .instrumentId(req.getInstrumentId())
@@ -72,6 +52,10 @@ public class OrderService {
                 .type(req.getOrderType())
                 .status(OrderStatus.NEW)
                 .limitPrice(req.getPrice())
+                .stopPrice(req.getStopPrice())
+                .trailingOffset(req.getTrailingOffset())
+                .trailingType(req.getTrailingType())
+                .displayQuantity(req.getDisplayQuantity())
                 .totalQuantity(req.getQuantity())
                 .filledQuantity(BigDecimal.ZERO)
                 .timeInForce(req.getTimeInForce() == null ? TimeInForce.IMMEDIATE_OR_CANCEL : req.getTimeInForce())
@@ -79,35 +63,25 @@ public class OrderService {
                 .placedAt(OffsetDateTime.now())
                 .updatedAt(OffsetDateTime.now())
                 .notionalValue(req.getPrice() != null ? req.getPrice().multiply(req.getQuantity()) : BigDecimal.ZERO)
+                // OCO-specific fields
+                .ocoGroupId(req.getOcoGroupId())
+                .primaryOrderType(req.getPrimaryOrderType())
+                .primaryPrice(req.getPrimaryPrice())
+                .primaryStopPrice(req.getPrimaryStopPrice())
+                .secondaryOrderType(req.getSecondaryOrderType())
+                .secondaryPrice(req.getSecondaryPrice())
+                .secondaryStopPrice(req.getSecondaryStopPrice())
+                .secondaryTrailAmount(req.getSecondaryTrailAmount())
                 .build();
 
-        // 5. Save the order to the database (ID will be generated here)
+        // 3. Save the order to the database (ID will be generated here)
         Order saved = orderRepo.save(order);
+        log.info("💾 [SERVICE] Order saved to database - OrderID: {}, Status: {}, NotionalValue: {}",
+                saved.getId(), saved.getStatus(), saved.getNotionalValue());
 
-        // 6. Produce to order-placed topic with event envelope
-        OrderPlacedEvent event = new OrderPlacedEvent();
-        event.setOrderId(saved.getId().toString());
-        event.setUserId(saved.getUserId().toString());
-        event.setSymbol(saved.getInstrumentSymbol());
-        event.setSide(saved.getOrderSide().name());
-        event.setType(saved.getType().name());
-        event.setQuantity(saved.getTotalQuantity());
-        event.setPrice(saved.getLimitPrice());
-        event.setStopPrice(saved.getStopPrice());
-        event.setTrailingOffset(saved.getTrailingOffset());
-        event.setTrailingType(saved.getTrailingType());
-        event.setDisplayQuantity(saved.getDisplayQuantity());
-        event.setTimeInForce(saved.getTimeInForce().name());
-        event.setStatus(saved.getStatus().name());
-
-        EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
-                "OrderPlaced", "v1", UUID.randomUUID().toString(),
-                "order-service", Instant.now().toString(), event
-        );
-        producer.publish("order-placed-topic", saved.getId().toString(), envelope);
-
-        // 7. Map entity -> DTO and return response
-        return CreateMarketOrderResponse.builder()
+        // 4. Map entity -> DTO
+        log.debug("🔄 [SERVICE] Mapping order entity to response DTO - OrderID: {}", saved.getId());
+        return  CreateMarketOrderResponse.builder()
                 .orderId(saved.getId().toString())
                 .userId(saved.getUserId())
                 .instrumentId(saved.getInstrumentId())
@@ -123,26 +97,39 @@ public class OrderService {
                 .clientOrderId(saved.getClientOrderId())
                 .placedAt(saved.getPlacedAt())
                 .updatedAt(saved.getUpdatedAt())
-                .executedAt(saved.getExecutedAt())
-                .items(Collections.emptyList())
-                .isConfirmed(saved.isConfirmed())
+                .executedAt(saved.getExecutedAt()) // null initially
+                .items(Collections.emptyList())    // empty list until executions happen
                 .build();
     }
 
     @Transactional
     public CreateMarketOrderResponse reviewAndConfirmOrder(Long id) {
-        Order order = orderRepo.findById(id)
-                .orElseThrow(() -> new OrderNotFoundException(id));
+        log.info("🔍 [SERVICE] Reviewing and confirming order - OrderID: {}", id);
 
-        // Update status if order is NEW
+        Order order = orderRepo.findById(id)
+                .orElseThrow(() -> {
+                    log.error("❌ [SERVICE] Order not found for review - OrderID: {}", id);
+                    return new OrderNotFoundException(id);
+                });
+
+        log.info("📋 [SERVICE] Order found - OrderID: {}, CurrentStatus: {}, Symbol: {}, Qty: {}",
+                id, order.getStatus(), order.getInstrumentSymbol(), order.getTotalQuantity());
+
+        // Update status if order is NEW - start the wallet check pipeline
         if (order.getStatus() == OrderStatus.NEW) {
-            order.setStatus(OrderStatus.PENDING);
+            log.info("🚀 [SERVICE] Order is NEW - Starting wallet check pipeline - OrderID: {}", id);
+            order.setStatus(OrderStatus.PENDING_WALLET_CHECK);
             order.setUpdatedAt(OffsetDateTime.now());
             order.setConfirmed(true);
             order = orderRepo.save(order); // persist changes
+            log.info("💾 [SERVICE] Order status updated - OrderID: {}, NewStatus: {}, Confirmed: true", id, order.getStatus());
+        } else {
+            log.warn("⚠️ [SERVICE] Order not in NEW status - OrderID: {}, CurrentStatus: {}, Skipping status update",
+                    id, order.getStatus());
         }
 
-        // Publish single Kafka event
+        // Publish to wallet-check topic to start the pipeline
+        log.debug("📦 [SERVICE] Building event payload - OrderID: {}", order.getId());
         OrderPlacedEvent payload = buildEventPayload(order);
         EventEnvelope<OrderPlacedEvent> envelope = new EventEnvelope<>(
                 "OrderStatusChanged",
@@ -152,7 +139,12 @@ public class OrderService {
                 Instant.now().toString(),
                 payload
         );
-        producer.publish("orders.v1", order.getId().toString(), envelope);
+
+        // Start the wallet check pipeline (first step)
+        log.info("📤 [SERVICE] Publishing to Kafka - Topic: orders.wallet-check.v1, OrderID: {}", order.getId());
+        producer.publish("orders.wallet-check.v1", order.getId().toString(), envelope);
+        log.info("✅ [SERVICE] Order {} submitted for wallet check pipeline - Status: {}",
+                order.getId(), order.getStatus());
 
         // Map entity -> DTO
         return CreateMarketOrderResponse.builder()
@@ -186,9 +178,24 @@ public class OrderService {
         payload.setSide(order.getOrderSide().name());
         payload.setType(order.getType().name());
         payload.setPrice(order.getLimitPrice());
+        payload.setStopPrice(order.getStopPrice());
+        payload.setTrailingOffset(order.getTrailingOffset());
+        payload.setTrailingType(order.getTrailingType());
+        payload.setDisplayQuantity(order.getDisplayQuantity());
         payload.setQuantity(order.getTotalQuantity());
         payload.setTimeInForce(order.getTimeInForce().name());
         payload.setStatus(order.getStatus().name());
+
+        // Include OCO-specific fields if present
+        payload.setOcoGroupId(order.getOcoGroupId());
+        payload.setPrimaryOrderType(order.getPrimaryOrderType());
+        payload.setPrimaryPrice(order.getPrimaryPrice());
+        payload.setPrimaryStopPrice(order.getPrimaryStopPrice());
+        payload.setSecondaryOrderType(order.getSecondaryOrderType());
+        payload.setSecondaryPrice(order.getSecondaryPrice());
+        payload.setSecondaryStopPrice(order.getSecondaryStopPrice());
+        payload.setSecondaryTrailAmount(order.getSecondaryTrailAmount());
+
         return payload;
     }
 }

@@ -2,7 +2,6 @@ package com.example.trading.order_service.dto.pnl;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import java.math.BigDecimal;
 import java.util.Map;
 
