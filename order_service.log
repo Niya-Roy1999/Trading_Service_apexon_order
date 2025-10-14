@@ -1,0 +1,997 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< com.example.trading:order-service >------------------
+[INFO] Building order service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.6:run (default-cli) > test-compile @ order-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ order-service ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ order-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 53 source files with javac [debug parameters release 17] to target/classes
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Assets.java:[36,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Assets.java:[39,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Assets.java:[42,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Executions.java:[45,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Executions.java:[54,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Order.java:[51,23] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Order.java:[55,25] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Order.java:[61,24] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Order.java:[86,25] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Order.java:[92,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Order.java:[95,28] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[WARNING] /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/main/java/com/example/trading/order_service/entity/Order.java:[130,30] @Builder will ignore the initializing expression entirely. If you want the initializing expression to serve as default, add @Builder.Default. If it is not supposed to be settable during building, make the field final.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ order-service ---
+[INFO] skip non existing resourceDirectory /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ order-service ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.5.6:run (default-cli) < test-compile @ order-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.6:run (default-cli) @ order-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-14T17:16:58.656+05:30  INFO 17407 --- [           main] c.e.t.o.OrderServiceApplication          : Starting OrderServiceApplication using Java 17.0.10 with PID 17407 (/Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order/target/classes started by karirakesh in /Users/karirakesh/Documents/Apexon/Trading_Service_apexon_order)
+2025-10-14T17:16:58.657+05:30  INFO 17407 --- [           main] c.e.t.o.OrderServiceApplication          : No active profile set, falling back to 1 default profile: "default"
+2025-10-14T17:16:58.926+05:30  INFO 17407 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-14T17:16:58.947+05:30  INFO 17407 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
+2025-10-14T17:16:59.145+05:30  INFO 17407 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2025-10-14T17:16:59.150+05:30  INFO 17407 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-14T17:16:59.150+05:30  INFO 17407 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-14T17:16:59.175+05:30  INFO 17407 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-14T17:16:59.175+05:30  INFO 17407 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 503 ms
+2025-10-14T17:16:59.236+05:30  INFO 17407 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-14T17:16:59.259+05:30  INFO 17407 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-14T17:16:59.272+05:30  INFO 17407 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-14T17:16:59.371+05:30  INFO 17407 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-14T17:16:59.381+05:30  INFO 17407 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-14T17:16:59.463+05:30  INFO 17407 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@525b8922
+2025-10-14T17:16:59.464+05:30  INFO 17407 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-14T17:16:59.530+05:30  WARN 17407 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-14T17:16:59.530+05:30  WARN 17407 --- [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-10-14T17:16:59.537+05:30  INFO 17407 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-14T17:16:59.860+05:30  INFO 17407 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-14T17:17:00.103+05:30  INFO 17407 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-14T17:17:00.353+05:30  WARN 17407 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-14T17:17:00.497+05:30  INFO 17407 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2025-10-14T17:17:00.498+05:30  INFO 17407 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@406cc81b]]
+2025-10-14T17:17:00.498+05:30  INFO 17407 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2025-10-14T17:17:00.505+05:30  INFO 17407 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2025-10-14T17:17:00.541+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.589+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.589+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.589+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420588
+2025-10-14T17:17:00.591+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.594+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.594+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.594+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420594
+2025-10-14T17:17:00.594+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.596+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.596+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.596+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420596
+2025-10-14T17:17:00.597+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.598+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.599+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.599+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420598
+2025-10-14T17:17:00.599+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.600+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.600+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.600+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420600
+2025-10-14T17:17:00.601+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.602+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.602+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.602+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420602
+2025-10-14T17:17:00.603+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.604+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.604+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.604+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420604
+2025-10-14T17:17:00.604+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.605+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.605+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.606+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420605
+2025-10-14T17:17:00.606+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.607+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.607+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.607+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420607
+2025-10-14T17:17:00.607+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.608+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.608+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.608+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420608
+2025-10-14T17:17:00.609+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.609+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.609+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.609+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420609
+2025-10-14T17:17:00.610+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.611+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.611+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.611+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420611
+2025-10-14T17:17:00.611+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.612+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.612+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.612+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420612
+2025-10-14T17:17:00.612+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.613+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.613+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.613+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420613
+2025-10-14T17:17:00.614+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.614+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.614+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.614+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420614
+2025-10-14T17:17:00.615+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.616+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.616+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.616+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420616
+2025-10-14T17:17:00.616+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.617+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.617+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.617+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420617
+2025-10-14T17:17:00.617+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.618+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.618+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.618+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420618
+2025-10-14T17:17:00.618+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.619+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.619+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.619+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420619
+2025-10-14T17:17:00.619+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.620+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.620+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.620+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420620
+2025-10-14T17:17:00.621+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.621+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.621+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.621+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420621
+2025-10-14T17:17:00.622+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.622+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.622+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.622+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420622
+2025-10-14T17:17:00.623+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.624+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.624+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.624+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420624
+2025-10-14T17:17:00.624+05:30  INFO 17407 --- [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T17:17:00.625+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T17:17:00.625+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T17:17:00.625+05:30  INFO 17407 --- [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760442420625
+2025-10-14T17:17:00.632+05:30  INFO 17407 --- [           main] c.e.t.o.OrderServiceApplication          : Started OrderServiceApplication in 2.161 seconds (process running for 2.307)
+2025-10-14T17:17:00.901+05:30  INFO 17407 --- [ntainer#7-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : wallet-check-group: partitions assigned: []
+2025-10-14T17:17:00.901+05:30  INFO 17407 --- [ntainer#6-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-validation-group: partitions assigned: []
+2025-10-14T17:17:00.901+05:30  INFO 17407 --- [ntainer#2-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : execution-event-group: partitions assigned: []
+2025-10-14T17:17:00.901+05:30  INFO 17407 --- [ntainer#2-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : execution-event-group: partitions assigned: []
+2025-10-14T17:17:00.901+05:30  INFO 17407 --- [ntainer#6-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-validation-group: partitions assigned: []
+2025-10-14T17:17:00.901+05:30  INFO 17407 --- [ntainer#7-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : wallet-check-group: partitions assigned: []
+2025-10-14T17:17:00.909+05:30  INFO 17407 --- [ntainer#7-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : wallet-check-group: partitions assigned: [orders.wallet-check.v1-0]
+2025-10-14T17:17:00.909+05:30  INFO 17407 --- [ntainer#6-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-validation-group: partitions assigned: [orders.validation.v1-0]
+2025-10-14T17:17:00.909+05:30  INFO 17407 --- [ntainer#2-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : execution-event-group: partitions assigned: [execution.v1-0]
+2025-10-14T17:17:00.917+05:30  INFO 17407 --- [ntainer#4-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : cancellation-event-group: partitions assigned: []
+2025-10-14T17:17:00.917+05:30  INFO 17407 --- [ntainer#4-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : cancellation-event-group: partitions assigned: []
+2025-10-14T17:17:00.918+05:30  INFO 17407 --- [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T17:17:00.918+05:30  INFO 17407 --- [ntainer#1-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T17:17:00.918+05:30  INFO 17407 --- [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T17:17:00.918+05:30  INFO 17407 --- [ntainer#1-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T17:17:00.922+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: [orders.approved.v1-0]
+2025-10-14T17:17:00.934+05:30  INFO 17407 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: [orders.rejected.v1-0]
+2025-10-14T17:17:00.934+05:30  INFO 17407 --- [ntainer#4-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : cancellation-event-group: partitions assigned: [failed.v1-0]
+2025-10-14T17:17:00.935+05:30  WARN 17407 --- [ntainer#5-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-processing-group-16, groupId=order-processing-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {order-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:00.935+05:30  WARN 17407 --- [ntainer#3-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-approval-group-11, groupId=order-approval-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {order-waiting-approval-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:00.935+05:30  WARN 17407 --- [ntainer#5-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-processing-group-18, groupId=order-processing-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {order-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:00.935+05:30  WARN 17407 --- [ntainer#3-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-approval-group-10, groupId=order-approval-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {order-waiting-approval-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.018+05:30  WARN 17407 --- [ntainer#3-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-approval-group-12, groupId=order-approval-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {order-waiting-approval-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.018+05:30  WARN 17407 --- [ntainer#5-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-processing-group-17, groupId=order-processing-group] The metadata response from the cluster reported a recoverable issue with correlation id 2 : {order-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.045+05:30  WARN 17407 --- [ntainer#5-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-processing-group-16, groupId=order-processing-group] The metadata response from the cluster reported a recoverable issue with correlation id 8 : {order-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.047+05:30  WARN 17407 --- [ntainer#5-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-processing-group-18, groupId=order-processing-group] The metadata response from the cluster reported a recoverable issue with correlation id 9 : {order-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.051+05:30  WARN 17407 --- [ntainer#3-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-approval-group-11, groupId=order-approval-group] The metadata response from the cluster reported a recoverable issue with correlation id 8 : {order-waiting-approval-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.056+05:30  WARN 17407 --- [ntainer#3-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-approval-group-10, groupId=order-approval-group] The metadata response from the cluster reported a recoverable issue with correlation id 8 : {order-waiting-approval-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.131+05:30  WARN 17407 --- [ntainer#3-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-approval-group-12, groupId=order-approval-group] The metadata response from the cluster reported a recoverable issue with correlation id 9 : {order-waiting-approval-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.134+05:30  WARN 17407 --- [ntainer#5-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-order-processing-group-17, groupId=order-processing-group] The metadata response from the cluster reported a recoverable issue with correlation id 9 : {order-topic=UNKNOWN_TOPIC_OR_PARTITION}
+2025-10-14T17:17:01.265+05:30  INFO 17407 --- [ntainer#3-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-approval-group: partitions assigned: []
+2025-10-14T17:17:01.265+05:30  INFO 17407 --- [ntainer#5-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-processing-group: partitions assigned: []
+2025-10-14T17:17:01.265+05:30  INFO 17407 --- [ntainer#5-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-processing-group: partitions assigned: []
+2025-10-14T17:17:01.266+05:30  INFO 17407 --- [ntainer#3-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-approval-group: partitions assigned: []
+2025-10-14T17:17:01.270+05:30  INFO 17407 --- [ntainer#3-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-approval-group: partitions assigned: [order-waiting-approval-topic-0]
+2025-10-14T17:17:01.270+05:30  INFO 17407 --- [ntainer#5-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : order-processing-group: partitions assigned: [order-topic-0]
+2025-10-14T17:17:02.673+05:30  INFO 17407 --- [nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-14T17:17:02.673+05:30  INFO 17407 --- [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-14T17:17:02.677+05:30  INFO 17407 --- [nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-10-14T17:17:02.723+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:02.792+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:07.651+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:07.671+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:12.624+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:12.629+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:17.650+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:17.767+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:23.009+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:24.632+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:27.704+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:27.739+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:32.770+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:33.665+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:37.635+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:37.644+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:42.630+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:42.640+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:47.617+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:47.623+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:52.633+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:52.646+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:17:57.614+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:17:57.618+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:00.514+05:30  INFO 17407 --- [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 6], outboundChannel[pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 8, active threads = 1, queued tasks = 2, completed tasks = 14]
+2025-10-14T17:18:02.633+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:02.644+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:07.621+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:07.625+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:12.631+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:12.635+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:17.636+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:17.651+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:22.632+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:22.642+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:27.645+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:27.659+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:32.630+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:32.638+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:34.216+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: BUY, Type: MARKET, Quantity: 10, Price: null
+2025-10-14T17:18:34.216+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: BUY, Type: MARKET, Qty: 10, Price: null
+2025-10-14T17:18:34.264+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 117, Status: NEW, NotionalValue: 0
+2025-10-14T17:18:34.265+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 117, Status: NEW, ClientOrderId: test-market-1760442514
+2025-10-14T17:18:37.670+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:37.724+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:41.357+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: SELL, Type: LIMIT, Quantity: 5, Price: 200.00
+2025-10-14T17:18:41.357+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: SELL, Type: LIMIT, Qty: 5, Price: 200.00
+2025-10-14T17:18:41.362+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 118, Status: NEW, NotionalValue: 1000.00
+2025-10-14T17:18:41.362+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 118, Status: NEW, ClientOrderId: test-limit-1760442521
+2025-10-14T17:18:42.626+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:42.634+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:47.627+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:47.635+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:48.421+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: BUY, Type: STOP_MARKET, Quantity: 8, Price: null
+2025-10-14T17:18:48.422+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: BUY, Type: STOP_MARKET, Qty: 8, Price: null
+2025-10-14T17:18:48.426+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 119, Status: NEW, NotionalValue: 0
+2025-10-14T17:18:48.426+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 119, Status: NEW, ClientOrderId: test-stop-market-1760442528
+2025-10-14T17:18:52.645+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:52.664+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:18:55.487+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: SELL, Type: STOP_LIMIT, Quantity: 7, Price: 186.00
+2025-10-14T17:18:55.488+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: SELL, Type: STOP_LIMIT, Qty: 7, Price: 186.00
+2025-10-14T17:18:55.492+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 120, Status: NEW, NotionalValue: 1302.00
+2025-10-14T17:18:55.492+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 120, Status: NEW, ClientOrderId: test-stop-limit-1760442535
+2025-10-14T17:18:57.631+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:18:57.643+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:02.544+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: BUY, Type: TRAILING_STOP, Quantity: 12, Price: null
+2025-10-14T17:19:02.545+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: BUY, Type: TRAILING_STOP, Qty: 12, Price: null
+2025-10-14T17:19:02.549+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 121, Status: NEW, NotionalValue: 0
+2025-10-14T17:19:02.549+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 121, Status: NEW, ClientOrderId: test-trailing-1760442542
+2025-10-14T17:19:02.617+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:02.623+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:07.645+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:07.660+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:09.627+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: SELL, Type: ICEBERG, Quantity: 100, Price: 195.00
+2025-10-14T17:19:09.627+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: SELL, Type: ICEBERG, Qty: 100, Price: 195.00
+2025-10-14T17:19:09.631+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 122, Status: NEW, NotionalValue: 19500.00
+2025-10-14T17:19:09.631+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 122, Status: NEW, ClientOrderId: test-iceberg-1760442549
+2025-10-14T17:19:12.623+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:12.630+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:16.762+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: BUY, Type: ONE_CANCELS_OTHER, Quantity: 15, Price: null
+2025-10-14T17:19:16.763+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: BUY, Type: ONE_CANCELS_OTHER, Qty: 15, Price: null
+2025-10-14T17:19:16.776+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 123, Status: NEW, NotionalValue: 0
+2025-10-14T17:19:16.776+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 123, Status: NEW, ClientOrderId: test-oco-1760442556
+2025-10-14T17:19:17.626+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:17.635+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:22.648+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:22.669+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:27.655+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:27.678+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:32.626+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:32.635+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:37.668+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:37.684+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:42.624+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:42.636+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:47.634+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:47.647+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:52.625+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:52.638+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:19:57.627+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:19:57.644+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:02.623+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:02.639+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:07.616+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:07.621+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:12.620+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:12.628+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:17.622+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:17.632+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:22.619+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:22.625+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:27.627+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:27.638+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:32.622+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:32.628+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:37.628+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:37.640+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:42.622+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:42.628+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:47.643+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:47.659+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:52.621+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:52.627+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:20:57.619+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:20:57.627+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:02.638+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:02.653+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:07.618+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:07.624+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:12.625+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:12.634+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:17.621+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:17.627+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:22.640+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:22.651+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:27.620+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:27.632+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:32.635+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:32.643+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:37.656+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:37.671+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:42.635+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:42.653+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:47.627+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:47.634+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:52.632+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:52.643+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:21:57.627+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:21:57.633+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:22:02.626+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:22:02.641+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:22:07.638+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:22:07.646+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:22:12.623+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:22:12.648+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:22:17.638+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:22:17.652+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:22:20.540+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:22:21.253+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:22:22.680+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:22:23.233+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:23.064+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:23.083+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:25.027+05:30  WARN 17407 --- [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m25s420ms).
+2025-10-14T17:23:28.073+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:28.094+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:33.077+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:33.094+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:38.060+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:38.070+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:43.049+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:43.058+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:48.046+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:48.053+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:53.056+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:53.067+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:23:58.046+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:23:58.056+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:03.053+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:03.061+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:08.049+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:08.060+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:13.051+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:13.061+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:18.066+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:18.077+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:23.090+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:23.103+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:28.054+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:28.067+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:33.049+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:33.075+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:38.072+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:38.083+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:43.054+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:43.063+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:48.047+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:48.058+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:53.045+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:53.053+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:24:58.055+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:24:58.066+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:03.079+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:03.105+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:08.051+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:08.060+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:13.051+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:13.078+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:18.049+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:18.059+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:23.081+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:23.102+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:28.046+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:28.058+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:32.854+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:33.038+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:33.621+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:33.621+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:25:38.049+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:25:38.058+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:24.552+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:29.899+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:30.171+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:30.171+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:33.745+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:33.830+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:35.722+05:30  WARN 17407 --- [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m10s673ms).
+2025-10-14T17:38:38.756+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:38.775+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:43.748+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:43.776+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:48.726+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:48.736+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:53.717+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:53.724+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:38:58.727+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:38:58.736+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:39:03.742+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:39:03.761+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:39:08.724+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:39:08.732+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:39:13.748+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:39:13.760+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:50:35.713+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:50:35.726+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:50:48.087+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:50:48.398+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:50:50.726+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:50:52.585+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:50:52.587+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:50:52.587+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:50:52.716+05:30  WARN 17407 --- [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m46s988ms).
+2025-10-14T17:50:55.876+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:50:56.524+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:00.824+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:02.595+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:05.719+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:05.760+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:10.755+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:10.807+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:15.743+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:15.789+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:20.747+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:20.780+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:25.730+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:25.756+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:30.784+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:32.506+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:35.735+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:35.754+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:40.726+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:40.747+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:45.708+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:45.725+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:50.774+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:50.790+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:51:55.725+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:51:55.747+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:00.740+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:00.761+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:05.729+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:05.747+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:10.704+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:10.717+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:15.737+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:15.760+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:20.751+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:20.778+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:25.704+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:25.715+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:30.718+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:30.736+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:35.712+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:35.719+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:40.724+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:40.743+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:45.765+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:45.824+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:50.761+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:50.845+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:52:55.768+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:52:56.543+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:00.734+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:00.772+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:05.738+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:05.761+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:10.694+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:10.702+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:15.708+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:15.720+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:20.704+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:20.718+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:25.696+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:25.710+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:30.718+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:30.736+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:35.712+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:35.726+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:40.711+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:40.729+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:45.702+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:45.712+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:50.703+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:50.717+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:53:55.707+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:53:55.714+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:00.713+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:00.727+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:05.708+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:05.720+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:10.718+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:10.733+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:15.709+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:15.718+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:20.735+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:20.746+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:25.742+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:25.763+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:30.707+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:30.716+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:35.717+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:35.731+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:40.711+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:40.720+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:45.715+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:45.735+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:50.724+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:50.817+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:54:55.730+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:54:55.761+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:00.696+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:00.710+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:05.714+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:05.743+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:10.735+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:10.750+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:15.732+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:15.750+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:20.705+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:20.715+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:25.704+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:25.712+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:30.704+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:30.709+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:35.731+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:35.752+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:40.732+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:40.750+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:45.785+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:45.797+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:50.698+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:50.710+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:55:55.719+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:55:55.734+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:00.753+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:00.775+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:05.730+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:05.782+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:10.752+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:10.781+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:15.721+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:15.752+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:20.730+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:20.752+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:25.719+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:25.762+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:30.705+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:30.745+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:35.711+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:35.758+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:40.715+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:40.744+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:45.691+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:45.697+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:50.838+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:50.866+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:56:55.728+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:56:55.771+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:00.722+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:00.760+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:05.700+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:05.707+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:10.802+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:11.214+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:15.703+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:15.719+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:20.752+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:21.691+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:25.726+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:26.046+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:30.740+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:31.892+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:35.721+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:35.741+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:40.743+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:40.774+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:45.726+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:45.756+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:50.737+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:50.749+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:57:55.712+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:57:55.747+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:00.723+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:00.739+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:05.708+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:05.719+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:10.705+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:10.709+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:15.717+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:15.743+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:20.755+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:20.816+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:25.754+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:28.040+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:30.729+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:30.744+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:35.719+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:35.744+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:40.742+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:40.819+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:45.729+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:45.738+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:50.702+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:50.712+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:58:55.727+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:58:55.754+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:00.705+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:00.729+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:05.725+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:05.739+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:10.699+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:10.706+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:15.725+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:15.767+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:20.706+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:20.725+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:25.712+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:25.734+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:30.710+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:30.725+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:35.694+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:35.708+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:40.729+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:40.750+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:45.702+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:45.711+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:50.715+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:50.727+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T17:59:55.731+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T17:59:55.742+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:00.726+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:00.782+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:05.706+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:05.734+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:10.698+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:10.707+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:15.712+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:15.720+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:20.706+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:20.726+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:25.835+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:25.858+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:30.721+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:30.733+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:35.711+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:35.720+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:40.714+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:40.732+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:45.729+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:45.740+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:50.704+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:50.714+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:00:55.698+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:00:55.710+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:00.707+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:00.718+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:05.730+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:05.748+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:10.701+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:10.713+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:15.724+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:15.742+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:20.701+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:20.708+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:25.717+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:25.730+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:30.701+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:30.709+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:35.725+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:35.734+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:40.692+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:40.697+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:45.698+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:45.707+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:50.761+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:50.815+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:01:55.735+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:01:55.763+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:00.720+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:00.728+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:05.702+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:05.710+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:10.704+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:10.710+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:15.729+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:15.740+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:20.712+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:20.846+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:25.755+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:25.867+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:30.719+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:30.736+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:35.730+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:35.745+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:40.700+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:40.706+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:45.700+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:45.704+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:50.698+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:50.705+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:02:55.729+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:02:55.753+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:00.725+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:00.759+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:05.707+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:05.732+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:10.725+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:10.743+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:15.696+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:15.719+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:20.723+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:20.757+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:25.718+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:25.751+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:30.713+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:30.726+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:35.706+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:35.714+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:40.706+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:40.711+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:45.687+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:45.696+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:50.813+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:50.838+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:03:55.702+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:03:55.713+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:00.704+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:00.759+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:05.719+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:05.773+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:10.714+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:10.737+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:15.714+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:15.750+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:20.726+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:20.768+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:25.706+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:25.728+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:26.284+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : 📥 [API] Received CREATE ORDER request - User: 1, Symbol: AAPL, Side: BUY, Type: LIMIT, Quantity: 10, Price: 237
+2025-10-14T18:04:26.285+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.service.OrderService             : 🏭 [SERVICE] Creating new order - User: 1, Symbol: AAPL, Side: BUY, Type: LIMIT, Qty: 10, Price: 237
+2025-10-14T18:04:26.381+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order saved to database - OrderID: 124, Status: NEW, NotionalValue: 2370
+2025-10-14T18:04:26.381+05:30  INFO 17407 --- [nio-8083-exec-4] c.e.t.o.controller.OrdersController      : ✅ [API] Order created successfully - OrderID: 124, Status: NEW, ClientOrderId: null
+2025-10-14T18:04:26.401+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 🔍 [API] Received REVIEW & CONFIRM request - OrderID: 124
+2025-10-14T18:04:26.402+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : 🔍 [SERVICE] Reviewing and confirming order - OrderID: 124
+2025-10-14T18:04:26.423+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : 📋 [SERVICE] Order found - OrderID: 124, CurrentStatus: NEW, Symbol: AAPL, Qty: 10.00000000
+2025-10-14T18:04:26.423+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : 🚀 [SERVICE] Order is NEW - Starting wallet check pipeline - OrderID: 124
+2025-10-14T18:04:26.442+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : 💾 [SERVICE] Order status updated - OrderID: 124, NewStatus: PENDING_WALLET_CHECK, Confirmed: true
+2025-10-14T18:04:26.445+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : 📤 [SERVICE] Publishing to Kafka - Topic: orders.wallet-check.v1, OrderID: 124
+2025-10-14T18:04:26.528+05:30  INFO 17407 --- [nio-8083-exec-6] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2025-10-14T18:04:26.575+05:30  INFO 17407 --- [nio-8083-exec-6] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2025-10-14T18:04:26.575+05:30  INFO 17407 --- [nio-8083-exec-6] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2025-10-14T18:04:26.575+05:30  INFO 17407 --- [nio-8083-exec-6] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1760445266574
+2025-10-14T18:04:26.658+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.service.OrderService             : ✅ [SERVICE] Order 124 submitted for wallet check pipeline - Status: PENDING_WALLET_CHECK
+2025-10-14T18:04:26.679+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] Order confirmed and pipeline started - OrderID: 124, Status: PENDING_WALLET_CHECK
+2025-10-14T18:04:26.897+05:30  INFO 17407 --- [ad | producer-1] c.e.t.o.kafka.OrderEventsProducer        : ✅ [KAFKA-PRODUCER] Message published successfully - Topic: orders.wallet-check.v1, OrderID: 124, Partition: 0, Offset: 58
+2025-10-14T18:04:26.970+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.kafka.WalletCheckConsumer        : 🔔 [KAFKA-WALLET] Received wallet check request - OrderID: 124, EventType: OrderStatusChanged
+2025-10-14T18:04:26.974+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.kafka.WalletCheckConsumer        : 💰 [KAFKA-WALLET] Required amount calculated - OrderID: 124, Amount: 2370.00000000, User: 1
+2025-10-14T18:04:26.975+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.kafka.WalletCheckConsumer        : 🔍 [KAFKA-WALLET] Checking wallet balance - OrderID: 124, UserID: 1, Required: 2370.00000000
+2025-10-14T18:04:26.975+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.kafka.WalletCheckConsumer        : ✅ [KAFKA-WALLET] Sufficient funds available - OrderID: 124, Amount: 2370.00000000
+2025-10-14T18:04:26.975+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.kafka.WalletCheckConsumer        : ✅ [KAFKA-WALLET] Order status updated - OrderID: 124, NewStatus: PENDING_COMPLIANCE
+2025-10-14T18:04:26.988+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.s.OrderStatusNotificationService : Sent order status update to user 1: orderId=124, status=PENDING_COMPLIANCE
+2025-10-14T18:04:26.988+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.kafka.WalletCheckConsumer        : 📤 [KAFKA-WALLET] Publishing to compliance topic - OrderID: 124
+2025-10-14T18:04:27.002+05:30  INFO 17407 --- [ntainer#7-0-C-1] c.e.t.o.kafka.WalletCheckConsumer        : ✅ [KAFKA-WALLET] Order wallet check passed and forwarded - OrderID: 124
+2025-10-14T18:04:27.019+05:30  INFO 17407 --- [ad | producer-1] c.e.t.o.kafka.OrderEventsProducer        : ✅ [KAFKA-PRODUCER] Message published successfully - Topic: orders.compliance.v1, OrderID: 124, Partition: 0, Offset: 55
+2025-10-14T18:04:27.789+05:30  INFO 17407 --- [ntainer#0-0-C-1] c.e.t.o.k.ComplianceResponseConsumer     : 🔔 [KAFKA-COMPLIANCE] Received APPROVED order - OrderID: 124, EventType: OrderApproved
+2025-10-14T18:04:27.793+05:30  INFO 17407 --- [ntainer#0-0-C-1] c.e.t.o.k.ComplianceResponseConsumer     : ✅ [KAFKA-COMPLIANCE] Order marked as APPROVED - OrderID: 124
+2025-10-14T18:04:27.803+05:30 ERROR 17407 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Stopping container due to an Error
+
+java.lang.NoClassDefFoundError: com/example/trading/order_service/kafka/ComplianceResponseConsumer$1
+	at com.example.trading.order_service.kafka.ComplianceResponseConsumer.buildExchangeOrderRequest(ComplianceResponseConsumer.java:213) ~[classes/:na]
+	at com.example.trading.order_service.kafka.ComplianceResponseConsumer.consumeApprovedOrder(ComplianceResponseConsumer.java:78) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.11.jar:6.2.11]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.11.jar:6.2.11]
+	at com.example.trading.order_service.kafka.ComplianceResponseConsumer$$SpringCGLIB$$0.consumeApprovedOrder(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:169) ~[spring-messaging-6.2.11.jar:6.2.11]
+	at org.springframework.kafka.listener.adapter.KotlinAwareInvocableHandlerMethod.doInvoke(KotlinAwareInvocableHandlerMethod.java:45) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:119) ~[spring-messaging-6.2.11.jar:6.2.11]
+	at org.springframework.kafka.listener.adapter.HandlerAdapter.invoke(HandlerAdapter.java:78) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.MessagingMessageListenerAdapter.invokeHandler(MessagingMessageListenerAdapter.java:475) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.MessagingMessageListenerAdapter.invoke(MessagingMessageListenerAdapter.java:421) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.RecordMessagingMessageListenerAdapter.onMessage(RecordMessagingMessageListenerAdapter.java:85) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.RecordMessagingMessageListenerAdapter.onMessage(RecordMessagingMessageListenerAdapter.java:50) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doInvokeOnMessage(KafkaMessageListenerContainer.java:2887) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeOnMessage(KafkaMessageListenerContainer.java:2865) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doInvokeRecordListener(KafkaMessageListenerContainer.java:2777) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doInvokeWithRecords(KafkaMessageListenerContainer.java:2614) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeRecordListener(KafkaMessageListenerContainer.java:2503) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeListener(KafkaMessageListenerContainer.java:2152) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeIfHaveRecords(KafkaMessageListenerContainer.java:1528) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1466) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1335) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: java.lang.ClassNotFoundException: com.example.trading.order_service.kafka.ComplianceResponseConsumer$1
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	... 37 common frames omitted
+
+2025-10-14T18:04:27.822+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions revoked: [orders.approved.v1-0]
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-10-14T18:04:27.856+05:30  INFO 17407 --- [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-10-14T18:04:27.864+05:30  INFO 17407 --- [ntainer#0-1-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-compliance-response-group-20 unregistered
+2025-10-14T18:04:27.864+05:30  INFO 17407 --- [ntainer#0-2-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-compliance-response-group-21 unregistered
+2025-10-14T18:04:27.865+05:30  INFO 17407 --- [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: Consumer stopped
+2025-10-14T18:04:27.865+05:30  INFO 17407 --- [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: Consumer stopped
+2025-10-14T18:04:28.357+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2025-10-14T18:04:28.357+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-10-14T18:04:28.358+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-10-14T18:04:28.358+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2025-10-14T18:04:28.368+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-compliance-response-group-19 unregistered
+2025-10-14T18:04:28.369+05:30  INFO 17407 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: Consumer stopped
+2025-10-14T18:04:28.371+05:30 ERROR 17407 --- [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Error while stopping the container
+
+java.util.concurrent.CompletionException: java.lang.NoClassDefFoundError: com/example/trading/order_service/kafka/ComplianceResponseConsumer$1
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320) ~[na:na]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1807) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: java.lang.NoClassDefFoundError: com/example/trading/order_service/kafka/ComplianceResponseConsumer$1
+	at com.example.trading.order_service.kafka.ComplianceResponseConsumer.buildExchangeOrderRequest(ComplianceResponseConsumer.java:213) ~[classes/:na]
+	at com.example.trading.order_service.kafka.ComplianceResponseConsumer.consumeApprovedOrder(ComplianceResponseConsumer.java:78) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.11.jar:6.2.11]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.11.jar:6.2.11]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.11.jar:6.2.11]
+	at com.example.trading.order_service.kafka.ComplianceResponseConsumer$$SpringCGLIB$$0.consumeApprovedOrder(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:169) ~[spring-messaging-6.2.11.jar:6.2.11]
+	at org.springframework.kafka.listener.adapter.KotlinAwareInvocableHandlerMethod.doInvoke(KotlinAwareInvocableHandlerMethod.java:45) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:119) ~[spring-messaging-6.2.11.jar:6.2.11]
+	at org.springframework.kafka.listener.adapter.HandlerAdapter.invoke(HandlerAdapter.java:78) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.MessagingMessageListenerAdapter.invokeHandler(MessagingMessageListenerAdapter.java:475) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.MessagingMessageListenerAdapter.invoke(MessagingMessageListenerAdapter.java:421) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.RecordMessagingMessageListenerAdapter.onMessage(RecordMessagingMessageListenerAdapter.java:85) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.adapter.RecordMessagingMessageListenerAdapter.onMessage(RecordMessagingMessageListenerAdapter.java:50) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doInvokeOnMessage(KafkaMessageListenerContainer.java:2887) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeOnMessage(KafkaMessageListenerContainer.java:2865) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doInvokeRecordListener(KafkaMessageListenerContainer.java:2777) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doInvokeWithRecords(KafkaMessageListenerContainer.java:2614) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeRecordListener(KafkaMessageListenerContainer.java:2503) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeListener(KafkaMessageListenerContainer.java:2152) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.invokeIfHaveRecords(KafkaMessageListenerContainer.java:1528) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1466) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1335) ~[spring-kafka-3.3.10.jar:3.3.10]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[na:na]
+	... 1 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.trading.order_service.kafka.ComplianceResponseConsumer$1
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	... 37 common frames omitted
+
+2025-10-14T18:04:30.390+05:30  INFO 17407 --- [ntainer#1-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions revoked: []
+2025-10-14T18:04:30.393+05:30  INFO 17407 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions revoked: [orders.rejected.v1-0]
+2025-10-14T18:04:30.597+05:30  INFO 17407 --- [ntainer#1-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions revoked: []
+2025-10-14T18:04:30.632+05:30  INFO 17407 --- [ntainer#1-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T18:04:30.636+05:30  INFO 17407 --- [ntainer#1-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T18:04:30.698+05:30  INFO 17407 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: [orders.rejected.v1-0]
+2025-10-14T18:04:30.738+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:30.760+05:30  INFO 17407 --- [nio-8083-exec-2] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:34.577+05:30  INFO 17407 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions revoked: [orders.rejected.v1-0]
+2025-10-14T18:04:35.750+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:35.850+05:30  INFO 17407 --- [nio-8083-exec-5] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:36.608+05:30  INFO 17407 --- [ntainer#1-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions revoked: []
+2025-10-14T18:04:36.608+05:30  INFO 17407 --- [ntainer#1-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions revoked: []
+2025-10-14T18:04:37.046+05:30  INFO 17407 --- [ntainer#1-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T18:04:37.048+05:30  INFO 17407 --- [ntainer#1-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: []
+2025-10-14T18:04:37.132+05:30  INFO 17407 --- [ntainer#1-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : compliance-response-group: partitions assigned: [orders.rejected.v1-0]
+2025-10-14T18:04:40.798+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:40.994+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:45.889+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:46.207+05:30  INFO 17407 --- [nio-8083-exec-6] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:50.727+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:51.007+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:04:55.711+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:04:55.717+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:00.729+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:00.747+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:05.748+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:05.765+05:30  INFO 17407 --- [io-8083-exec-10] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:10.769+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:10.789+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:15.736+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:15.771+05:30  INFO 17407 --- [nio-8083-exec-9] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:20.724+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:20.774+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:25.737+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:25.750+05:30  INFO 17407 --- [nio-8083-exec-8] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:30.723+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:30.741+05:30  INFO 17407 --- [nio-8083-exec-7] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:35.734+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:35.752+05:30  INFO 17407 --- [nio-8083-exec-1] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+2025-10-14T18:05:40.700+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : 📊 [API] Calculate P&L request - UserID: 1, Market prices for 5 symbols
+2025-10-14T18:05:40.706+05:30  INFO 17407 --- [nio-8083-exec-3] c.e.t.o.controller.OrdersController      : ✅ [API] P&L calculated - UserID: 1, Total P&L: 0, Realized: 0, Unrealized: 0
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  48:47 min
+[INFO] Finished at: 2025-10-14T18:05:43+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.5.6:run (default-cli) on project order-service: Process terminated with exit code: 137 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

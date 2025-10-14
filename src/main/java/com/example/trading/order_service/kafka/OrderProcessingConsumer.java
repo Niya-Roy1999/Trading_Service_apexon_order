@@ -27,9 +27,12 @@ public class OrderProcessingConsumer {
 
     //High-risk order types that require approval
     private static final Set<String> HIGH_RISK_TYPES = new HashSet<>(Arrays.asList(
-            "STOP_MARKET", "STOP_LIMIT", "TRAILING_STOP", "ICEBERG", "PEGGED"));
+            "STOP_MARKET", "STOP_LIMIT", "TRAILING_STOP", "ICEBERG"));
 
-    @KafkaListener(topics = "order-topic")
+    @KafkaListener(
+            topics = "order-topic",
+            groupId = "order-processing-group"
+    )
     public void handleOrder(EventEnvelope<OrderPlacedEvent> envelope) {
         OrderPlacedEvent event = envelope.getPayload();
         boolean needsApproval = isApprovalRequired(event);
