@@ -32,7 +32,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.CONFLICT);
     }
 
-<<<<<<< HEAD
     @ExceptionHandler(ValidationException.class)
     public ResponseEntity<Map<String, Object>> handleValidationException(ValidationException ex) {
         Map<String, Object> error = new HashMap<>();
@@ -51,7 +50,8 @@ public class GlobalExceptionHandler {
         error.put("error", "Insufficient Funds");
         error.put("message", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.PAYMENT_REQUIRED);
-=======
+    }
+
     @ExceptionHandler(OrderProcessingException.class)
     public ResponseEntity<Map<String, Object>> handleOrderProcessingException (OrderProcessingException ex) {
         Map<String, Object> error = new HashMap<>();
@@ -60,7 +60,6 @@ public class GlobalExceptionHandler {
         error.put("error", "Exception while processing the order");
         error.put("message", ex.getMessage());
         return new ResponseEntity<>(error, HttpStatus.EXPECTATION_FAILED);
->>>>>>> origin/main
     }
 
     @ExceptionHandler(Exception.class)

@@ -25,7 +25,10 @@ public class OrderApprovalConsumer {
     @Autowired
     private OrderRepository orderRepository;
 
-    @KafkaListener(topics = "order-waiting-approval-topic")
+    @KafkaListener(
+            topics = "order-waiting-approval-topic",
+            groupId = "order-approval-group"
+    )
     public void handleApproval(EventEnvelope<OrderApprovalEvent> envelope) {
         OrderApprovalEvent event = envelope.getPayload();
         String orderId = event.getOrderId();
